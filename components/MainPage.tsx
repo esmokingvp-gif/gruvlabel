@@ -7,7 +7,6 @@ interface MainPageProps {
   onSelectArtist: (artist: Artist) => void;
 }
 
-// MODIFICADO: Alterado o formato do arquivo de .png para .svg
 const Logo: React.FC<{ className?: string }> = ({ className = '' }) => (
   <img 
     src="/logos/gruvlabel-logo.svg" 
@@ -23,7 +22,8 @@ const Header: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#0D0D0D]/80 backdrop-blur-sm">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <Logo className="h-10 w-auto" />
+        {/* MODIFICADO: Tamanho do logo aumentado de h-10 para h-12 */}
+        <Logo className="h-12 w-auto" />
         <nav className="hidden md:flex items-center space-x-8">
           <button onClick={() => scrollToSection('home')} className="hover:text-cyan-400 transition-colors">INÍCIO</button>
           <button onClick={() => scrollToSection('artistas')} className="hover:text-cyan-400 transition-colors">ARTISTAS</button>
@@ -92,11 +92,10 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
             src="/videos/videohero.mp4"
             className="absolute inset-0 w-full h-full object-cover z-0"
           />
-          {/* MODIFICADO: Reintroduzido um overlay, desta vez um gradiente sutil */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/70 z-10"></div>
           
-          {/* MODIFICADO: Removida a sombra de texto e ajustado o z-index */}
           <div className="relative z-20 p-6">
+            {/* Tamanho do logo do Hero permanece o mesmo */}
             <Logo className="h-40 md:h-52 w-auto mx-auto" />
             <h2 className="text-2xl md:text-3xl font-semibold tracking-wider text-white mt-4">AGENCIAMENTO DE ARTISTAS</h2>
             <p className="text-gray-400 mt-4 max-w-lg mx-auto">Contrate os melhores DJs para o seu evento</p>
@@ -171,7 +170,8 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
 
       <footer className="bg-[#111111] py-8">
         <div className="container mx-auto px-6 text-center text-gray-500">
-            <Logo className="h-12 w-auto mx-auto mb-4" />
+            {/* MODIFICADO: Tamanho do logo aumentado de h-12 para h-14 */}
+            <Logo className="h-14 w-auto mx-auto mb-4" />
             <p className="text-sm mb-4">&copy; 2025 Gruv Label. Todos os direitos reservados.</p>
             <a href="#" className="inline-block p-2 hover:text-cyan-400 transition-colors"><Instagram size={20}/></a>
         </div>
