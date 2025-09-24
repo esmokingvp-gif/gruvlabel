@@ -41,24 +41,25 @@ const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
       <DjHeader onBack={onBack}/>
 
       <section className="h-screen w-full relative flex flex-col items-center justify-center text-center text-white overflow-hidden">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover -z-10"
-          style={{ height: '500px' }}
-          src={artist.heroVideo}
-        />
-        <div className="absolute inset-0 bg-black/60"></div>
-        <div className="z-10 p-6">
-            <h1 className="text-8xl md:text-9xl font-black tracking-tight whitespace-nowrap">{artist.name.split(' ')[1].toLowerCase()}</h1>
-            <p className="text-xl md:text-2xl font-semibold text-cyan-400 tracking-widest mt-2">{artist.tagline}</p>
-        </div>
-        <button onClick={scrollToMusic} className="absolute bottom-10 z-10 animate-bounce">
-            <ChevronDown size={36} />
-        </button>
-      </section>
+  <div className="absolute inset-0 overflow-hidden -z-10">
+    <video
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="w-full h-full object-cover"
+      src={artist.heroVideo}
+    />
+  </div>
+  <div className="absolute inset-0 bg-black/60"></div>
+  <div className="z-10 p-6">
+      <h1 className="text-8xl md:text-9xl font-black tracking-tight whitespace-nowrap">{artist.name.split(\' \")[1].toLowerCase()}</h1>
+      <p className="text-xl md:text-2xl font-semibold text-cyan-400 tracking-widest mt-2">{artist.tagline}</p>
+  </div>
+  <button onClick={scrollToMusic} className="absolute bottom-10 z-10 animate-bounce">
+      <ChevronDown size={36} />
+  </button>
+</section>
 
       <section id="musicas" className="py-24 bg-[#0D0D0D]">
         <div className="container mx-auto px-6 text-center max-w-3xl">
