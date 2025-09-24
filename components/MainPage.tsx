@@ -36,7 +36,6 @@ const Header: React.FC = () => {
   );
 };
 
-// MODIFICADO: Componente ArtistCard completamente refeito
 const ArtistCard: React.FC<{ artist: Artist; onSelectArtist: (artist: Artist) => void }> = ({ artist, onSelectArtist }) => {
   return (
     <div className="group relative aspect-[3/4] border border-gray-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2 card-glow">
@@ -44,7 +43,8 @@ const ArtistCard: React.FC<{ artist: Artist; onSelectArtist: (artist: Artist) =>
       <img 
         src={artist.image} 
         alt={artist.name} 
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+        // MODIFICADO: Adicionamos a classe de alinhamento dinamicamente
+        className={`absolute inset-0 w-full h-full object-cover ${artist.imageAlignment || 'object-center'} transition-transform duration-500 ease-in-out group-hover:scale-110`}
       />
       {/* Overlay para legibilidade do texto */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent"></div>
