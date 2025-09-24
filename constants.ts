@@ -1,4 +1,3 @@
-
 import { Artist } from './types';
 
 export const ARTISTS: Artist[] = [
@@ -6,8 +5,9 @@ export const ARTISTS: Artist[] = [
     id: 1,
     name: 'DJ Rodriz',
     tagline: 'DJ / Produtor',
-    image: 'https://i.imgur.com/3Z3qY3c.png',
-    logoUrl: '/logos/rodriz-logo.png', // Replace with actual logo URL
+    // MODIFICADO: Caminho da imagem atualizado
+    image: '/artists/djrodriz1.webp',
+    logoUrl: '/logos/rodriz-logo.png',
     stats: {
       monthlyListeners: '180K ouvintes/mês',
       subscribers: '1.75K inscritos',
@@ -22,19 +22,17 @@ export const ARTISTS: Artist[] = [
     topTracks: [
       { id: 1, title: 'Se Revela', artist: 'DJ Rodriz', duration: '3:30', coverArt: 'https://picsum.photos/seed/track1/100/100', explicit: false },
       { id: 2, title: 'Mega Joga a Xrc', artist: 'DJ Rodriz', duration: '2:38', coverArt: 'https://picsum.photos/seed/track2/100/100', explicit: true },
-      { id: 3, title: 'Mega Vou te Botar', artist: 'DJ Rodriz', duration: '3:16', coverArt: 'https://picsum.photos/seed/track3/100/100', explicit: true },
-      { id: 4, title: 'Mega Furdunço', artist: 'DJ Rodriz', duration: '2:55', coverArt: 'https://picsum.photos/seed/track4/100/100', explicit: true },
     ],
     videos: [
       { id: 1, title: 'Mega Dia de Plantão', thumbnail: 'https://picsum.photos/seed/video1/400/225', url: '#' },
-      { id: 2, title: 'Live Set #1', thumbnail: 'https://picsum.photos/seed/video2/400/225', url: '#' },
     ],
   },
   {
     id: 2,
     name: 'DJ Lucas Henrique',
     tagline: 'DJ / Produtor',
-    image: 'https://i.imgur.com/dEa8X4E.png',
+    // MODIFICADO: Caminho da imagem atualizado
+    image: '/artists/djlucashenrique1.webp',
     logoUrl: '/logos/lucashenrique-logo.png',
     stats: {
       monthlyListeners: '64K ouvintes/mês',
@@ -49,7 +47,6 @@ export const ARTISTS: Artist[] = [
     heroVideo: '/videos/lucashenrique.mp4',
     topTracks: [
         { id: 1, title: 'Midnight Drive', artist: 'DJ Lucas Henrique', duration: '4:15', coverArt: 'https://picsum.photos/seed/track5/100/100', explicit: false },
-        { id: 2, title: 'City Lights', artist: 'DJ Lucas Henrique', duration: '3:50', coverArt: 'https://picsum.photos/seed/track6/100/100', explicit: false },
     ],
     videos: [
       { id: 1, title: 'Downtown Mix', thumbnail: 'https://picsum.photos/seed/video3/400/225', url: '#' },
@@ -59,7 +56,8 @@ export const ARTISTS: Artist[] = [
     id: 3,
     name: 'DJ Zatelli',
     tagline: 'DJ / Produtor',
-    image: 'https://i.imgur.com/z4b7G7A.png',
+    // MODIFICADO: Caminho da imagem atualizado
+    image: '/artists/djzatelli1.webp',
     logoUrl: '/logos/zatelli-logo.png',
     stats: {
       monthlyListeners: '5K ouvintes/mês',
@@ -74,10 +72,34 @@ export const ARTISTS: Artist[] = [
     heroVideo: '/videos/zatelli.mp4',
     topTracks: [
         { id: 1, title: 'Warehouse Rave', artist: 'DJ Zatelli', duration: '5:02', coverArt: 'https://picsum.photos/seed/track7/100/100', explicit: true },
-        { id: 2, title: 'Sunrise Groove', artist: 'DJ Zatelli', duration: '4:30', coverArt: 'https://picsum.photos/seed/track8/100/100', explicit: false },
     ],
     videos: [
       { id: 1, title: 'Boiler Room Set', thumbnail: 'https://picsum.photos/seed/video4/400/225', url: '#' },
+    ],
+  },
+  // NOVO: DJ Diguera adicionado
+  {
+    id: 4,
+    name: 'DJ Diguera',
+    tagline: 'DJ / Produtor',
+    image: '/artists/djdiguera1.webp',
+    logoUrl: '/logos/diguera-logo.png', // Lembre-se de adicionar o logo dele também
+    stats: {
+      monthlyListeners: '10K ouvintes/mês',
+      subscribers: '1.2K inscritos',
+      views: '500K+ views',
+    },
+    socials: {
+      instagram: 'https://instagram.com',
+      spotify: 'https://spotify.com',
+      appleMusic: 'https://music.apple.com',
+    },
+    heroVideo: '/videos/diguera.mp4', // Lembre-se de adicionar o vídeo dele
+    topTracks: [
+        { id: 1, title: 'Faixa do Diguera', artist: 'DJ Diguera', duration: '3:00', coverArt: 'https://picsum.photos/seed/track9/100/100', explicit: false },
+    ],
+    videos: [
+      { id: 1, title: 'Set do Diguera', thumbnail: 'https://picsum.photos/seed/video5/400/225', url: '#' },
     ],
   },
 ];
