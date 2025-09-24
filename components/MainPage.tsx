@@ -22,7 +22,6 @@ const Header: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#0D0D0D]/80 backdrop-blur-sm">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        {/* MODIFICADO: Tamanho do logo aumentado de h-10 para h-12 */}
         <Logo className="h-12 w-auto" />
         <nav className="hidden md:flex items-center space-x-8">
           <button onClick={() => scrollToSection('home')} className="hover:text-cyan-400 transition-colors">INÍCIO</button>
@@ -95,7 +94,6 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/70 z-10"></div>
           
           <div className="relative z-20 p-6">
-            {/* Tamanho do logo do Hero permanece o mesmo */}
             <Logo className="h-40 md:h-52 w-auto mx-auto" />
             <h2 className="text-2xl md:text-3xl font-semibold tracking-wider text-white mt-4">AGENCIAMENTO DE ARTISTAS</h2>
             <p className="text-gray-400 mt-4 max-w-lg mx-auto">Contrate os melhores DJs para o seu evento</p>
@@ -126,7 +124,8 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
 
         <section id="artistas" className="py-24 bg-[#0D0D0D]">
           <div className="container mx-auto px-6 text-center">
-            <h2 className="text-5xl font-black mb-12 text-cyan-400">NOSSOS ARTISTAS</h2>
+            {/* MODIFICADO: Tamanho do texto diminuído de text-5xl para text-4xl */}
+            <h2 className="text-4xl font-black mb-12 text-cyan-400">NOSSOS ARTISTAS</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {artists.map(artist => (
                 <ArtistCard key={artist.id} artist={artist} onSelectArtist={onSelectArtist} />
@@ -137,7 +136,8 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
 
         <section id="sobre" className="py-24 bg-[#111111]">
           <div className="container mx-auto px-6 text-center max-w-4xl">
-            <h2 className="text-5xl font-black mb-8 text-cyan-400">SOBRE A GRUV LABEL</h2>
+            {/* MODIFICADO: Tamanho do texto diminuído de text-5xl para text-4xl */}
+            <h2 className="text-4xl font-black mb-8 text-cyan-400">SOBRE A GRUV LABEL</h2>
             <p className="text-gray-300 leading-relaxed mb-4">
               A <span className="text-cyan-400 font-semibold">Gruv Label</span> é uma agência especializada em bookings e agenciamento de artistas.
             </p>
@@ -155,7 +155,8 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
 
         <section id="contato" className="py-24 bg-[#0D0D0D]">
             <div className="container mx-auto px-6 text-center">
-                <h2 className="text-5xl font-black mb-8 text-cyan-400">CONTATO</h2>
+                {/* MODIFICADO: Tamanho do texto diminuído de text-5xl para text-4xl */}
+                <h2 className="text-4xl font-black mb-8 text-cyan-400">CONTATO</h2>
                  <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                     <a href="#" className="flex items-center justify-center gap-3 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white font-bold py-3 px-8 rounded-full hover:opacity-90 transition-opacity duration-300 transform hover:scale-105">
                         <Instagram size={20} /> @gruvlabel
@@ -170,7 +171,6 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
 
       <footer className="bg-[#111111] py-8">
         <div className="container mx-auto px-6 text-center text-gray-500">
-            {/* MODIFICADO: Tamanho do logo aumentado de h-12 para h-14 */}
             <Logo className="h-14 w-auto mx-auto mb-4" />
             <p className="text-sm mb-4">&copy; 2025 Gruv Label. Todos os direitos reservados.</p>
             <a href="#" className="inline-block p-2 hover:text-cyan-400 transition-colors"><Instagram size={20}/></a>
