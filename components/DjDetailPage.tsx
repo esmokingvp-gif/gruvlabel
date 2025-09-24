@@ -1,5 +1,7 @@
+// Caminho do arquivo: src/components/DjDetailPage.tsx
+
 import React from 'react';
-import { Artist, Track, Video } from '../types';
+import { Artist } from '../types';
 import { ArrowLeft, ChevronDown, Music, Play, Video as VideoIcon, User, MoreHorizontal, SkipBack, SkipForward, Pause, Plus } from 'lucide-react';
 
 interface DjDetailPageProps {
@@ -40,7 +42,6 @@ const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
       <DjHeader onBack={onBack}/>
 
       <section className="h-screen w-full relative flex flex-col items-center justify-center text-center text-white overflow-hidden">
-        {/* LINHA CORRIGIDA ABAIXO: Removido o "-z-10" */}
         <div className="absolute inset-0 overflow-hidden">
           <video
             autoPlay
@@ -52,9 +53,14 @@ const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
           />
         </div>
         <div className="absolute inset-0 bg-black/60"></div>
-        <div className="z-10 p-6">
-            <h1 className="text-8xl md:text-9xl font-black tracking-tight whitespace-nowrap">{artist.name.split(' ')[1].toLowerCase()}</h1>
-            <p className="text-xl md:text-2xl font-semibold text-cyan-400 tracking-widest mt-2">{artist.tagline}</p>
+        <div className="z-10 p-6 flex flex-col items-center">
+            {/* LINHA MODIFICADA ABAIXO: Trocamos o H1 por uma imagem */}
+            <img 
+              src={artist.logoUrl} 
+              alt={`Logo de ${artist.name}`} 
+              className="max-h-40 md:max-h-56 w-auto" 
+            />
+            <p className="text-xl md:text-2xl font-semibold text-cyan-400 tracking-widest mt-4">{artist.tagline}</p>
         </div>
         <button onClick={scrollToMusic} className="absolute bottom-10 z-10 animate-bounce">
             <ChevronDown size={36} />
