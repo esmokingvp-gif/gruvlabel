@@ -18,7 +18,7 @@ export const ARTISTS: Artist[] = [
       spotify: 'https://spotify.com',
       appleMusic: 'https://music.apple.com',
     },
-    heroVideo: 'https://videos.pexels.com/video-files/3209210/3209210-hd_1920_1080_25fps.mp4',
+    heroVideo: '/videos/rodriz.mp4',
     topTracks: [
       { id: 1, title: 'Se Revela', artist: 'DJ Rodriz', duration: '3:30', coverArt: 'https://picsum.photos/seed/track1/100/100', explicit: false },
       { id: 2, title: 'Mega Joga a Xrc', artist: 'DJ Rodriz', duration: '2:38', coverArt: 'https://picsum.photos/seed/track2/100/100', explicit: true },
@@ -46,7 +46,7 @@ export const ARTISTS: Artist[] = [
       spotify: 'https://spotify.com',
       appleMusic: 'https://music.apple.com',
     },
-    heroVideo: 'https://videos.pexels.com/video-files/8099385/8099385-hd_1920_1080_24fps.mp4',
+    heroVideo: '/videos/lucashenrique.mp4',
     topTracks: [
         { id: 1, title: 'Midnight Drive', artist: 'DJ Lucas Henrique', duration: '4:15', coverArt: 'https://picsum.photos/seed/track5/100/100', explicit: false },
         { id: 2, title: 'City Lights', artist: 'DJ Lucas Henrique', duration: '3:50', coverArt: 'https://picsum.photos/seed/track6/100/100', explicit: false },
@@ -71,7 +71,7 @@ export const ARTISTS: Artist[] = [
       spotify: 'https://spotify.com',
       appleMusic: 'https://music.apple.com',
     },
-    heroVideo: 'https://videos.pexels.com/video-files/7578278/7578278-hd_1920_1080_30fps.mp4',
+    heroVideo: '/videos/zatelli.mp4',
     topTracks: [
         { id: 1, title: 'Warehouse Rave', artist: 'DJ Zatelli', duration: '5:02', coverArt: 'https://picsum.photos/seed/track7/100/100', explicit: true },
         { id: 2, title: 'Sunrise Groove', artist: 'DJ Zatelli', duration: '4:30', coverArt: 'https://picsum.photos/seed/track8/100/100', explicit: false },
