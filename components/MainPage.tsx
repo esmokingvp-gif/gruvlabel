@@ -36,29 +36,45 @@ const Header: React.FC = () => {
   );
 };
 
-
+// MODIFICADO: Componente ArtistCard completamente refeito
 const ArtistCard: React.FC<{ artist: Artist; onSelectArtist: (artist: Artist) => void }> = ({ artist, onSelectArtist }) => {
   return (
-    <div className="bg-[#1A1A1A] border border-gray-800 rounded-2xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2 card-glow">
-      <img src={artist.image} alt={artist.name} className="w-48 h-48 object-cover rounded-lg mb-6 grayscale"/>
-      <h3 className="text-2xl font-bold mb-2">{artist.name}</h3>
-      <p className="text-sm text-gray-400 mb-1">{artist.stats.monthlyListeners}</p>
-      <p className="text-sm text-gray-400 mb-1">{artist.stats.subscribers}</p>
-      <p className="text-sm text-gray-400 mb-4">{artist.stats.views}</p>
-      <div className="flex space-x-4 mb-6">
-        <a href={artist.socials.instagram} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700/50 rounded-full hover:bg-cyan-400/20 transition-colors"><Instagram size={20}/></a>
-        <a href={artist.socials.spotify} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700/50 rounded-full hover:bg-cyan-400/20 transition-colors"><Music size={20}/></a>
-        <a href={artist.socials.appleMusic} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700/50 rounded-full hover:bg-cyan-400/20 transition-colors"><Play size={20}/></a>
+    <div className="group relative aspect-[3/4] border border-gray-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2 card-glow">
+      {/* Imagem de fundo */}
+      <img 
+        src={artist.image} 
+        alt={artist.name} 
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+      />
+      {/* Overlay para legibilidade do texto */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent"></div>
+
+      {/* Conteúdo do Card */}
+      <div className="relative z-10 flex flex-col h-full p-6 text-center text-white">
+        <div className="mt-auto"> {/* Empurra o conteúdo para baixo */}
+          <h3 className="text-3xl font-bold mb-2">{artist.name}</h3>
+          <p className="text-sm text-gray-400 mb-1">{artist.stats.monthlyListeners}</p>
+          <p className="text-sm text-gray-400 mb-1">{artist.stats.subscribers}</p>
+          <p className="text-sm text-gray-400 mb-4">{artist.stats.views}</p>
+          <div className="flex justify-center space-x-4 mb-6">
+            <a href={artist.socials.instagram} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700/50 rounded-full hover:bg-cyan-400/20 transition-colors"><Instagram size={20}/></a>
+            <a href={artist.socials.spotify} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700/50 rounded-full hover:bg-cyan-400/20 transition-colors"><Music size={20}/></a>
+            <a href={artist.socials.appleMusic} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700/50 rounded-full hover:bg-cyan-400/20 transition-colors"><Play size={20}/></a>
+          </div>
+          <div className="space-y-2">
+            <button onClick={() => onSelectArtist(artist)} className="w-full bg-transparent border border-cyan-400 text-cyan-400 font-semibold py-3 px-6 rounded-lg hover:bg-cyan-400 hover:text-black transition-all duration-300">
+              VER DETALHES
+            </button>
+            <button onClick={() => onSelectArtist(artist)} className="w-full bg-cyan-400 text-black font-bold py-3 px-6 rounded-lg hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 shadow-[0_0_10px_rgba(0,242,234,0.4)]">
+              CONTRATAR {artist.name.toUpperCase().split(' ')[1]}
+            </button>
+          </div>
+        </div>
       </div>
-      <button onClick={() => onSelectArtist(artist)} className="w-full bg-transparent border border-cyan-400 text-cyan-400 font-semibold py-3 px-6 rounded-lg hover:bg-cyan-400 hover:text-black transition-all duration-300 mb-2">
-        VER DETALHES
-      </button>
-       <button onClick={() => onSelectArtist(artist)} className="w-full bg-cyan-400 text-black font-bold py-3 px-6 rounded-lg hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 shadow-[0_0_10px_rgba(0,242,234,0.4)]">
-        CONTRATAR {artist.name.toUpperCase().split(' ')[1]}
-      </button>
     </div>
   );
 };
+
 
 const ServiceCard: React.FC<{ icon: React.ReactNode; title: string }> = ({ icon, title }) => (
     <div className="bg-[#1A1A1A] border border-gray-800 rounded-2xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-1 card-glow">
@@ -74,7 +90,6 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
       <Header />
       <main>
         <section id="home" className="min-h-screen flex items-center justify-center text-center relative overflow-hidden">
-          {/* MODIFICADO: Substituímos o div da imagem de fundo pelo vídeo */}
           <video 
             autoPlay
             loop
