@@ -125,7 +125,7 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
         <section id="artistas" className="py-24 bg-[#0D0D0D]">
           <div className="container mx-auto px-6 text-center">
             {/* MODIFICADO: Tamanho do texto diminuído de text-5xl para text-4xl */}
-            <h2 className="text-4xl font-black mb-12 text-cyan-400">NOSSOS ARTISTAS</h2>
+            <h2 className="text-2xl font-black mb-12 text-cyan-400">NOSSOS ARTISTAS</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {artists.map(artist => (
                 <ArtistCard key={artist.id} artist={artist} onSelectArtist={onSelectArtist} />
@@ -137,7 +137,7 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
         <section id="sobre" className="py-24 bg-[#111111]">
           <div className="container mx-auto px-6 text-center max-w-4xl">
             {/* MODIFICADO: Tamanho do texto diminuído de text-5xl para text-4xl */}
-            <h2 className="text-4xl font-black mb-8 text-cyan-400">SOBRE A GRUV LABEL</h2>
+            <h2 className="text-2xl font-black mb-8 text-cyan-400">SOBRE A GRUV LABEL</h2>
             <p className="text-gray-300 leading-relaxed mb-4">
               A <span className="text-cyan-400 font-semibold">Gruv Label</span> é uma agência especializada em bookings e agenciamento de artistas.
             </p>
@@ -156,7 +156,7 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
         <section id="contato" className="py-24 bg-[#0D0D0D]">
             <div className="container mx-auto px-6 text-center">
                 {/* MODIFICADO: Tamanho do texto diminuído de text-5xl para text-4xl */}
-                <h2 className="text-4xl font-black mb-8 text-cyan-400">CONTATO</h2>
+                <h2 className="text-2xl font-black mb-8 text-cyan-400">CONTATO</h2>
                  <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                     <a href="#" className="flex items-center justify-center gap-3 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white font-bold py-3 px-8 rounded-full hover:opacity-90 transition-opacity duration-300 transform hover:scale-105">
                         <Instagram size={20} /> @gruvlabel
