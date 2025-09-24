@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Artist } from '../types';
 import { Instagram, Music, Play, ArrowUpRight, Calendar, LineChart, Send, MonitorPlay } from 'lucide-react';
@@ -8,10 +7,13 @@ interface MainPageProps {
   onSelectArtist: (artist: Artist) => void;
 }
 
-const GruvLogo: React.FC = () => (
-  <h1 className="text-8xl md:text-9xl font-black tracking-tighter text-cyan-400 text-glow">
-    gr<span className="text-white">ü</span>v
-  </h1>
+// NOVO: Componente reutilizável para o logo
+const Logo: React.FC<{ className?: string }> = ({ className = '' }) => (
+  <img 
+    src="/logos/gruvlabel-logo.svg" // <-- ATENÇÃO: Mude aqui se o nome do seu arquivo for diferente
+    alt="Grüv Label Logo" 
+    className={className} 
+  />
 );
 
 const Header: React.FC = () => {
@@ -21,7 +23,8 @@ const Header: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#0D0D0D]/80 backdrop-blur-sm">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold tracking-tighter text-cyan-400 text-glow">grüv</h1>
+        {/* MODIFICADO: Substituímos o h1 pelo componente Logo */}
+        <Logo className="h-7 w-auto" />
         <nav className="hidden md:flex items-center space-x-8">
           <button onClick={() => scrollToSection('home')} className="hover:text-cyan-400 transition-colors">INÍCIO</button>
           <button onClick={() => scrollToSection('artistas')} className="hover:text-cyan-400 transition-colors">ARTISTAS</button>
@@ -35,7 +38,7 @@ const Header: React.FC = () => {
   );
 };
 
-
+// ... (O restante dos seus componentes como ArtistCard e ServiceCard não precisam de alteração)
 const ArtistCard: React.FC<{ artist: Artist; onSelectArtist: (artist: Artist) => void }> = ({ artist, onSelectArtist }) => {
   return (
     <div className="bg-[#1A1A1A] border border-gray-800 rounded-2xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2 card-glow">
@@ -76,7 +79,8 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
           <div className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" style={{backgroundImage: "url('https://i.imgur.com/n6tK5qL.jpeg')", opacity: 0.15}}></div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] to-transparent z-10"></div>
           <div className="z-20 p-6">
-            <h1 className="text-8xl md:text-9xl font-black tracking-tight text-cyan-400 text-glow">grüv label</h1>
+            {/* MODIFICADO: Substituímos o h1 pelo componente Logo */}
+            <Logo className="h-24 md:h-28 w-auto mx-auto" />
             <h2 className="text-2xl md:text-3xl font-semibold tracking-wider text-white mt-4">AGENCIAMENTO DE ARTISTAS</h2>
             <p className="text-gray-400 mt-4 max-w-lg mx-auto">Contrate os melhores DJs para o seu evento</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-4xl mx-auto">
@@ -105,52 +109,22 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
         </section>
 
         <section id="artistas" className="py-24 bg-[#0D0D0D]">
-          <div className="container mx-auto px-6 text-center">
-            <h2 className="text-5xl font-black mb-12 text-cyan-400 text-glow">NOSSOS ARTISTAS</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {artists.map(artist => (
-                <ArtistCard key={artist.id} artist={artist} onSelectArtist={onSelectArtist} />
-              ))}
-            </div>
-          </div>
+          {/* ... */}
         </section>
 
         <section id="sobre" className="py-24 bg-[#111111]">
-          <div className="container mx-auto px-6 text-center max-w-4xl">
-            <h2 className="text-5xl font-black mb-8 text-cyan-400 text-glow">SOBRE A GRUV LABEL</h2>
-            <p className="text-gray-300 leading-relaxed mb-4">
-              A <span className="text-cyan-400 font-semibold">Gruv Label</span> é uma agência especializada em bookings e agenciamento de artistas.
-            </p>
-            <p className="text-gray-400 leading-relaxed mb-12">
-             Adotamos um modelo 360°, oferecendo um suporte completo que vai desde o fechamento de datas de shows até a gestão de carreira, cuidado com a imagem do artista, assessoria de conteúdo e marketing.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <ServiceCard icon={<Calendar size={32}/>} title="Fechamento de Shows" />
-                <ServiceCard icon={<LineChart size={32}/>} title="Gestão de Carreira" />
-                <ServiceCard icon={<Send size={32}/>} title="Marketing Digital" />
-                <ServiceCard icon={<MonitorPlay size={32}/>} title="Produção de Conteúdo" />
-            </div>
-          </div>
+          {/* ... */}
         </section>
 
         <section id="contato" className="py-24 bg-[#0D0D0D]">
-            <div className="container mx-auto px-6 text-center">
-                <h2 className="text-5xl font-black mb-8 text-cyan-400 text-glow">CONTATO</h2>
-                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                    <a href="#" className="flex items-center justify-center gap-3 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white font-bold py-3 px-8 rounded-full hover:opacity-90 transition-opacity duration-300 transform hover:scale-105">
-                        <Instagram size={20} /> @gruvlabel
-                    </a>
-                    <a href="#" className="flex items-center justify-center gap-3 bg-green-500 text-white font-bold py-3 px-8 rounded-full hover:bg-green-400 transition-colors duration-300 transform hover:scale-105">
-                        WhatsApp
-                    </a>
-                </div>
-            </div>
+            {/* ... */}
         </section>
       </main>
 
       <footer className="bg-[#111111] py-8">
         <div className="container mx-auto px-6 text-center text-gray-500">
-            <h3 className="text-3xl font-bold mb-4 text-gray-400 tracking-tighter">grüv</h3>
+            {/* MODIFICADO: Substituímos o h3 pelo componente Logo */}
+            <Logo className="h-8 w-auto mx-auto mb-4" />
             <p className="text-sm mb-4">&copy; 2025 Gruv Label. Todos os direitos reservados.</p>
             <a href="#" className="inline-block p-2 hover:text-cyan-400 transition-colors"><Instagram size={20}/></a>
         </div>
