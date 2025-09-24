@@ -10,7 +10,7 @@ interface MainPageProps {
 // Componente reutilizável para o logo (nenhuma mudança aqui)
 const Logo: React.FC<{ className?: string }> = ({ className = '' }) => (
   <img 
-    src="/logos/gruvlabel-logo.png" 
+    src="/logos/gruvlabel-logo.svg" 
     alt="Grüv Label Logo" 
     className={className} 
   />
