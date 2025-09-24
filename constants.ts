@@ -60,7 +60,7 @@ export const ARTISTS: Artist[] = [
     name: 'DJ Zatelli',
     tagline: 'DJ / Produtor',
     image: 'https://i.imgur.com/z4b7G7A.png',
-    logoUrl: 'https://i.imgur.com/example-logo-3.png',
+    logoUrl: '/logos/zatelli-logo.png',
     stats: {
       monthlyListeners: '5K ouvintes/mês',
       subscribers: '6.5K inscritos',
