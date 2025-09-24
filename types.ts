@@ -20,7 +20,6 @@ export interface Artist {
   name: string;
   tagline: string;
   image: string;
-  // NOVO: Propriedade opcional para alinhar a imagem do card
   imageAlignment?: string;
   logoUrl: string;
   stats: {
@@ -31,7 +30,9 @@ export interface Artist {
   socials: {
     instagram: string;
     spotify: string;
-    appleMusic: string;
+    // MODIFICADO: Trocamos appleMusic por youtube e adicionamos pressKit
+    youtube: string;
+    pressKit: string;
   };
   heroVideo: string;
   topTracks: Track[];
