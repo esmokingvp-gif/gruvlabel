@@ -7,7 +7,7 @@ export const ARTISTS: Artist[] = [
     name: 'DJ Rodriz',
     tagline: 'DJ / Produtor',
     image: 'https://i.imgur.com/3Z3qY3c.png',
-    logoUrl: 'https://i.imgur.com/example-logo-1.png', // Replace with actual logo URL
+    logoUrl: '/logos/rodriz-logo.png', // Replace with actual logo URL
     stats: {
       monthlyListeners: '180K ouvintes/mês',
       subscribers: '1.75K inscritos',
@@ -35,7 +35,7 @@ export const ARTISTS: Artist[] = [
     name: 'DJ Lucas Henrique',
     tagline: 'DJ / Produtor',
     image: 'https://i.imgur.com/dEa8X4E.png',
-    logoUrl: 'https://i.imgur.com/example-logo-2.png',
+    logoUrl: '/logos/lucashenrique-logo.png',
     stats: {
       monthlyListeners: '64K ouvintes/mês',
       subscribers: '8.8K inscritos',
