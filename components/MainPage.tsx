@@ -7,9 +7,10 @@ interface MainPageProps {
   onSelectArtist: (artist: Artist) => void;
 }
 
+// MODIFICADO: Alterado o formato do arquivo de .png para .svg
 const Logo: React.FC<{ className?: string }> = ({ className = '' }) => (
   <img 
-    src="/logos/gruvlabel-logo.png"
+    src="/logos/gruvlabel-logo.svg" 
     alt="Grüv Label Logo" 
     className={className} 
   />
@@ -83,7 +84,6 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
       <Header />
       <main>
         <section id="home" className="min-h-screen flex items-center justify-center text-center relative overflow-hidden">
-          {/* MODIFICAÇÃO 1: Removida a classe 'opacity-20' do vídeo */}
           <video 
             autoPlay
             loop
@@ -92,10 +92,11 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
             src="/videos/videohero.mp4"
             className="absolute inset-0 w-full h-full object-cover z-0"
           />
-          {/* MODIFICAÇÃO 2: O div do gradiente foi completamente REMOVIDO */}
+          {/* MODIFICADO: Reintroduzido um overlay, desta vez um gradiente sutil */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/70 z-10"></div>
           
-          {/* MODIFICAÇÃO 3: Adicionada uma sombra ao texto para garantir a legibilidade */}
-          <div className="z-20 p-6" style={{ textShadow: '0px 2px 10px rgba(0, 0, 0, 0.7)' }}>
+          {/* MODIFICADO: Removida a sombra de texto e ajustado o z-index */}
+          <div className="relative z-20 p-6">
             <Logo className="h-40 md:h-52 w-auto mx-auto" />
             <h2 className="text-2xl md:text-3xl font-semibold tracking-wider text-white mt-4">AGENCIAMENTO DE ARTISTAS</h2>
             <p className="text-gray-400 mt-4 max-w-lg mx-auto">Contrate os melhores DJs para o seu evento</p>
