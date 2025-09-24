@@ -46,7 +46,8 @@ const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
           loop
           muted
           playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover -z-10"
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          style={{ height: '500px' }}
           src={artist.heroVideo}
         />
         <div className="absolute inset-0 bg-black/60"></div>
