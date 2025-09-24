@@ -10,7 +10,7 @@ interface MainPageProps {
 // NOVO: Componente reutilizável para o logo
 const Logo: React.FC<{ className?: string }> = ({ className = '' }) => (
   <img 
-    src="/logos/gruvlabel-logo.svg" // <-- ATENÇÃO: Mude aqui se o nome do seu arquivo for diferente
+    src="/logos/gruvlabel-logo.svg" // <-- Lembre-se de colocar seu logo em public/logos/
     alt="Grüv Label Logo" 
     className={className} 
   />
@@ -38,7 +38,7 @@ const Header: React.FC = () => {
   );
 };
 
-// ... (O restante dos seus componentes como ArtistCard e ServiceCard não precisam de alteração)
+
 const ArtistCard: React.FC<{ artist: Artist; onSelectArtist: (artist: Artist) => void }> = ({ artist, onSelectArtist }) => {
   return (
     <div className="bg-[#1A1A1A] border border-gray-800 rounded-2xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2 card-glow">
@@ -108,16 +108,50 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
           </div>
         </section>
 
+        {/* CÓDIGO RESTAURADO */}
         <section id="artistas" className="py-24 bg-[#0D0D0D]">
-          {/* ... */}
+          <div className="container mx-auto px-6 text-center">
+            <h2 className="text-5xl font-black mb-12 text-cyan-400 text-glow">NOSSOS ARTISTAS</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {artists.map(artist => (
+                <ArtistCard key={artist.id} artist={artist} onSelectArtist={onSelectArtist} />
+              ))}
+            </div>
+          </div>
         </section>
 
+        {/* CÓDIGO RESTAURADO */}
         <section id="sobre" className="py-24 bg-[#111111]">
-          {/* ... */}
+          <div className="container mx-auto px-6 text-center max-w-4xl">
+            <h2 className="text-5xl font-black mb-8 text-cyan-400 text-glow">SOBRE A GRUV LABEL</h2>
+            <p className="text-gray-300 leading-relaxed mb-4">
+              A <span className="text-cyan-400 font-semibold">Gruv Label</span> é uma agência especializada em bookings e agenciamento de artistas.
+            </p>
+            <p className="text-gray-400 leading-relaxed mb-12">
+             Adotamos um modelo 360°, oferecendo um suporte completo que vai desde o fechamento de datas de shows até a gestão de carreira, cuidado com a imagem do artista, assessoria de conteúdo e marketing.
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <ServiceCard icon={<Calendar size={32}/>} title="Fechamento de Shows" />
+                <ServiceCard icon={<LineChart size={32}/>} title="Gestão de Carreira" />
+                <ServiceCard icon={<Send size={32}/>} title="Marketing Digital" />
+                <ServiceCard icon={<MonitorPlay size={32}/>} title="Produção de Conteúdo" />
+            </div>
+          </div>
         </section>
 
+        {/* CÓDIGO RESTAURADO */}
         <section id="contato" className="py-24 bg-[#0D0D0D]">
-            {/* ... */}
+            <div className="container mx-auto px-6 text-center">
+                <h2 className="text-5xl font-black mb-8 text-cyan-400 text-glow">CONTATO</h2>
+                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+                    <a href="#" className="flex items-center justify-center gap-3 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white font-bold py-3 px-8 rounded-full hover:opacity-90 transition-opacity duration-300 transform hover:scale-105">
+                        <Instagram size={20} /> @gruvlabel
+                    </a>
+                    <a href="#" className="flex items-center justify-center gap-3 bg-green-500 text-white font-bold py-3 px-8 rounded-full hover:bg-green-400 transition-colors duration-300 transform hover:scale-105">
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
         </section>
       </main>
 
