@@ -41,15 +41,15 @@ const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
 
       <section className="h-screen w-full relative flex flex-col items-center justify-center text-center text-white overflow-hidden">
         <div className="absolute inset-0 overflow-hidden -z-10">
-          <video
-            autoPlay
-            loop
+         <video
+           autoPlay
+           loop
             muted
-            playsInline
-            className="w-full h-full object-cover"
-            src={artist.heroVideo}
-          />
-        </div>
+          playsInline
+         className="w-full h-full object-cover"
+          src={artist.heroVideo}
+         />
+      </div>
         <div className="absolute inset-0 bg-black/60"></div>
         <div className="z-10 p-6">
             {/* LINHA CORRIGIDA ABAIXO */}
