@@ -40,19 +40,19 @@ const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
       <DjHeader onBack={onBack}/>
 
       <section className="h-screen w-full relative flex flex-col items-center justify-center text-center text-white overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden -z-10">
-         <video
-           autoPlay
-           loop
+        {/* LINHA CORRIGIDA ABAIXO: Removido o "-z-10" */}
+        <div className="absolute inset-0 overflow-hidden">
+          <video
+            autoPlay
+            loop
             muted
-          playsInline
-         className="w-full h-full object-cover"
-          src={artist.heroVideo}
-         />
-      </div>
+            playsInline
+            className="w-full h-full object-cover"
+            src={artist.heroVideo}
+          />
+        </div>
         <div className="absolute inset-0 bg-black/60"></div>
         <div className="z-10 p-6">
-            {/* LINHA CORRIGIDA ABAIXO */}
             <h1 className="text-8xl md:text-9xl font-black tracking-tight whitespace-nowrap">{artist.name.split(' ')[1].toLowerCase()}</h1>
             <p className="text-xl md:text-2xl font-semibold text-cyan-400 tracking-widest mt-2">{artist.tagline}</p>
         </div>
