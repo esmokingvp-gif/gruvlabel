@@ -2,6 +2,7 @@ import React from 'react';
 import { Artist } from '../types';
 import { ArrowLeft, ChevronDown, FileText, Instagram } from 'lucide-react';
 
+// Ícone personalizado para o YouTube
 const YoutubeIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
@@ -13,7 +14,7 @@ const YoutubeIcon: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
-// CORRIGIDO: O código SVG do ícone do Spotify foi substituído pelo que você forneceu
+// Ícone personalizado para o Spotify
 const SpotifyIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
@@ -49,10 +50,11 @@ const DjHeader: React.FC<{onBack: () => void}> = ({onBack}) => {
              <button onClick={onBack} className="bg-black/30 backdrop-blur-sm p-3 rounded-full hover:bg-black/50 transition-colors">
                 <ArrowLeft size={20} />
              </button>
-             <nav className="hidden md:flex items-center space-x-8 bg-black/30 backdrop-blur-sm px-6 py-2 rounded-full">
-              <button onClick={() => scrollToSection('musicas')} className="hover:text-cyan-400 transition-colors">MÚSICA</button>
-              <button onClick={() => scrollToSection('visualizers')} className="hover:text-cyan-400 transition-colors">VISUALIZERS</button>
-              <button onClick={() => scrollToSection('sobre')} className="hover:text-cyan-400 transition-colors">SOBRE</button>
+             {/* MODIFICADO: Removido 'hidden' e ajustado espaçamento para mobile */}
+             <nav className="flex items-center space-x-4 md:space-x-8 bg-black/30 backdrop-blur-sm px-6 py-2 rounded-full">
+              <button onClick={() => scrollToSection('musicas')} className="hover:text-cyan-400 transition-colors text-sm md:text-base">MÚSICA</button>
+              <button onClick={() => scrollToSection('visualizers')} className="hover:text-cyan-400 transition-colors text-sm md:text-base">VISUALIZERS</button>
+              <button onClick={() => scrollToSection('sobre')} className="hover:text-cyan-400 transition-colors text-sm md:text-base">SOBRE</button>
             </nav>
             <div></div>
           </div>
@@ -122,10 +124,11 @@ const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
           <h2 className="text-4xl font-black mb-12 text-cyan-400">MÚSICAS</h2>
           
           <div className="rounded-2xl border border-gray-800 card-glow overflow-hidden">
+            {/* MODIFICADO: Altura do player do Spotify alterada para 152 */}
             <iframe
               src={artist.spotifyEmbedUrl}
               width="100%"
-              height="352"
+              height="152"
               frameBorder="0"
               allowFullScreen
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -172,7 +175,8 @@ const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
         </div>
       </section>
 
-      <a href="#" className="fixed bottom-6 right-6 flex items-center gap-3 bg-cyan-400 text-black font-bold py-2 px-5 rounded-full hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(0,242,234,0.5)]">
+      {/* MODIFICADO: Espaçamento inferior do botão Contrate aumentado */}
+      <a href="#" className="fixed bottom-8 right-6 flex items-center gap-3 bg-green-500 text-white font-bold py-3 px-6 rounded-full hover:bg-green-600 transition-colors transform hover:scale-105 shadow-lg shadow-green-500/30 z-40">
         CONTRATE
       </a>
 
