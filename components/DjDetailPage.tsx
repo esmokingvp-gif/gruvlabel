@@ -14,16 +14,16 @@ const YoutubeIcon: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
-// Ícone personalizado para o Spotify
+// CORRIGIDO: O código SVG do ícone do Spotify foi substituído
 const SpotifyIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    viewBox="0 0 24 24" 
-    fill="currentColor" 
-    className={className}
-  >
-    <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm4.414 14.242c-.268.445-.85.58-1.295.312-2.5-1.5-5.63-1.832-9.303-.984-.522.12-.992-.225-.114-.746.12-.522.59-.867.747-1.002 4.103-.943 7.633-.538 10.493 1.133.445.268.58.85.312 1.295zm1.5-3.03c-.32.533-1.02.7-1.553.38-2.835-1.72-7.07-2.22-10.42-1.21-.62.18-1.27-.19-1.45-.81-.18-.62.۱۹-۱.۲۷.۸۱-۱.۴۵ 3.86-1.12 8.59-.57 11.85 1.42.53.32.7 1.02.38 1.55zm.11-3.21c-3.48-2.01-9.21-2.2-12.82-.12-.72.24-1.49-.2-1.73-.92-.24-.72.2-1.49.92-1.73 4.12-2.32 10.45-2.04 14.46 2.26.63.36.87 1.14.51 1.77-.36.63-1.14.87-1.77.51z"/>
-  </svg>
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className={className}
+    >
+        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.162 14.226c-.24.398-.756.517-1.154.277-2.327-1.417-5.28-1.73-8.714-.943-.458.104-.91-.188-.016-.646.104-.458.558-.75.646-.015 3.855-.86 7.03.53 9.66 2.18.398.24.517.756.277 1.154zm1.38-2.668c-.29.477-.878.62-1.355.33-2.61-1.58-6.52-2.05-10.01-1.115-.55.15-.15-.36-.3-.9.15-.55.7-.9.9-.3 3.9-.94 8.22-.41 11.2 1.48.476.29.62.875.33 1.355zM17.8 8.91c-.34.59-.14 1.35.45 1.69 3.24 1.86 8.4 1.62 12.28-.94.66-.25 1.32.14 1.57.8.25.66-.14 1.32-.8 1.57-4.4.25-10.01.5-13.8-1.92-.59-.34-1.35-.14-1.69.45z"/>
+    </svg>
 );
 
 const Logo: React.FC<{ className?: string }> = ({ className = '' }) => (
@@ -50,7 +50,6 @@ const DjHeader: React.FC<{onBack: () => void}> = ({onBack}) => {
              <button onClick={onBack} className="bg-black/30 backdrop-blur-sm p-3 rounded-full hover:bg-black/50 transition-colors">
                 <ArrowLeft size={20} />
              </button>
-             {/* MODIFICADO: Adicionado link para a seção SOBRE */}
              <nav className="hidden md:flex items-center space-x-8 bg-black/30 backdrop-blur-sm px-6 py-2 rounded-full">
               <button onClick={() => scrollToSection('musicas')} className="hover:text-cyan-400 transition-colors">MÚSICA</button>
               <button onClick={() => scrollToSection('visualizers')} className="hover:text-cyan-400 transition-colors">VISUALIZERS</button>
@@ -154,12 +153,10 @@ const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
         </div>
       </section>
 
-      {/* NOVO: Seção SOBRE adicionada aqui */}
       <section id="sobre" className="py-16">
         <div className="container mx-auto px-6 max-w-4xl">
           <h2 className="text-4xl font-black mb-12 text-cyan-400 text-center">SOBRE</h2>
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-            {/* Coluna da Foto */}
             <div className="w-full md:w-1/3 flex-shrink-0">
               <img
                 src={artist.image}
@@ -167,7 +164,6 @@ const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
                 className="w-full aspect-[3/4] object-cover rounded-2xl border border-gray-800 card-glow"
               />
             </div>
-            {/* Coluna do Texto */}
             <div className="w-full md:w-2/3 text-left">
               <p className="text-gray-300 text-lg leading-relaxed">
                 {artist.bio}
