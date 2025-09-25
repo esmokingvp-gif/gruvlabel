@@ -17,8 +17,8 @@ export interface Artist {
     pressKit: string;
   };
   heroVideo: string;
-  // NOVO: Adicionados campos para os embeds
   spotifyEmbedUrl: string;
   youtubeEmbedUrl: string;
-  // REMOVIDO: topTracks e videos não são mais necessários
+  // NOVO: Adicionado campo para a biografia
+  bio: string;
 }
