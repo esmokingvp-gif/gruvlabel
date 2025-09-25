@@ -12,7 +12,6 @@ export const ARTISTS: Artist[] = [
       subscribers: '1.75K inscritos',
       views: '2M+ views',
     },
-    // MODIFICADO: Links atualizados
     socials: {
       instagram: 'https://www.instagram.com/rodrizdj/?hl=pt-br',
       spotify: 'https://open.spotify.com/intl-pt/artist/3s085Y3JMDExHJiZzDxhUP',
@@ -20,13 +19,9 @@ export const ARTISTS: Artist[] = [
       pressKit: 'https://drive.google.com/drive/folders/1hUcuHI1atpZjkxFklPqpAWP13L72G_hz',
     },
     heroVideo: '/videos/rodriz.mp4',
-    topTracks: [
-      { id: 1, title: 'Se Revela', artist: 'DJ Rodriz', duration: '3:30', coverArt: 'https://picsum.photos/seed/track1/100/100', explicit: false },
-      { id: 2, title: 'Mega Joga a Xrc', artist: 'DJ Rodriz', duration: '2:38', coverArt: 'https://picsum.photos/seed/track2/100/100', explicit: true },
-    ],
-    videos: [
-      { id: 1, title: 'Mega Dia de Plantão', thumbnail: 'https://picsum.photos/seed/video1/400/225', url: '#' },
-    ],
+    // MODIFICADO: Adicionadas as URLs dos players
+    spotifyEmbedUrl: 'https://open.spotify.com/embed/track/1T0Za0ldouSRjRMH94SwWI?utm_source=generator',
+    youtubeEmbedUrl: 'https://www.youtube.com/embed/pQWnIYFiUaU?si=U3r_d5OYAatl4ZBe',
   },
   {
     id: 2,
@@ -40,7 +35,6 @@ export const ARTISTS: Artist[] = [
       subscribers: '8.8K inscritos',
       views: '3M+ views',
     },
-    // MODIFICADO: Links atualizados
     socials: {
       instagram: 'https://www.instagram.com/djlucashenrique_/',
       spotify: 'https://open.spotify.com/intl-pt/artist/0auLP5j5MbnqMRXmdlvub9',
@@ -48,12 +42,9 @@ export const ARTISTS: Artist[] = [
       pressKit: 'https://drive.google.com/drive/folders/1U9HfflzFgRTDtt8ZQhDpstRn13qJ2-Wo',
     },
     heroVideo: '/videos/lucashenrique.mp4',
-    topTracks: [
-        { id: 1, title: 'Midnight Drive', artist: 'DJ Lucas Henrique', duration: '4:15', coverArt: 'https://picsum.photos/seed/track5/100/100', explicit: false },
-    ],
-    videos: [
-      { id: 1, title: 'Downtown Mix', thumbnail: 'https://picsum.photos/seed/video3/400/225', url: '#' },
-    ],
+    // MODIFICADO: Adicionadas as URLs dos players
+    spotifyEmbedUrl: 'https://open.spotify.com/embed/track/2bgQz0QSSQ3oJ2VzyeaZj5?utm_source=generator',
+    youtubeEmbedUrl: 'https://www.youtube.com/embed/th2a-UrUEVE?si=v4d_YkKGNRF7BFgR',
   },
   {
     id: 3,
@@ -67,7 +58,6 @@ export const ARTISTS: Artist[] = [
       subscribers: '6.5K inscritos',
       views: '1.9M+ views',
     },
-    // MODIFICADO: Links atualizados
     socials: {
       instagram: 'https://www.instagram.com/djzatelli/',
       spotify: 'https://open.spotify.com/intl-pt/artist/5WXA9QsuHzbaB696vr1Hkg',
@@ -75,12 +65,9 @@ export const ARTISTS: Artist[] = [
       pressKit: 'https://drive.google.com/drive/folders/1Fb4X4gurVyg6SAw4vaLUMhWg1hFI2Ywk',
     },
     heroVideo: '/videos/zatelli.mp4',
-    topTracks: [
-        { id: 1, title: 'Warehouse Rave', artist: 'DJ Zatelli', duration: '5:02', coverArt: 'https://picsum.photos/seed/track7/100/100', explicit: true },
-    ],
-    videos: [
-      { id: 1, title: 'Boiler Room Set', thumbnail: 'https://picsum.photos/seed/video4/400/225', url: '#' },
-    ],
+    // MODIFICADO: Adicionadas as URLs dos players
+    spotifyEmbedUrl: 'https://open.spotify.com/embed/track/0RKaJf6wZ5rU6yBXEFCPDR?utm_source=generator',
+    youtubeEmbedUrl: 'https://www.youtube.com/embed/IFf6r38vERk?si=8r1SeXILU5rBj6Hk',
   },
   {
     id: 4,
@@ -94,7 +81,6 @@ export const ARTISTS: Artist[] = [
       subscribers: '1.2K inscritos',
       views: '500K+ views',
     },
-    // MODIFICADO: Links atualizados
     socials: {
       instagram: 'https://www.instagram.com/diguerabr/',
       spotify: 'https://open.spotify.com/intl-pt/artist/1CKoqzkaphGMIcHZ55JvvM',
@@ -102,11 +88,8 @@ export const ARTISTS: Artist[] = [
       pressKit: 'https://drive.google.com/drive/folders/1_sembv1xw4OESbCbJJVbKtU_dI8gbek-',
     },
     heroVideo: '/videos/diguera.mp4',
-    topTracks: [
-        { id: 1, title: 'Faixa do Diguera', artist: 'DJ Diguera', duration: '3:00', coverArt: 'https://picsum.photos/seed/track9/100/100', explicit: false },
-    ],
-    videos: [
-      { id: 1, title: 'Set do Diguera', thumbnail: 'https://picsum.photos/seed/video5/400/225', url: '#' },
-    ],
+    // MODIFICADO: Adicionadas as URLs dos players
+    spotifyEmbedUrl: 'https://open.spotify.com/embed/album/1qyY4y4lPjTZzHDdalOD2W?utm_source=generator',
+    youtubeEmbedUrl: 'https://www.youtube.com/embed/J4SezJtNvq8?si=pA7c516WlBCll6Az',
   },
 ];

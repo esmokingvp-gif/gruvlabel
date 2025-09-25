@@ -1,20 +1,3 @@
-// Definições de tipo para o seu projeto
-export interface Track {
-  id: number;
-  title: string;
-  artist: string;
-  duration: string;
-  coverArt: string;
-  explicit: boolean;
-}
-
-export interface Video {
-  id: number;
-  title: string;
-  thumbnail: string;
-  url: string;
-}
-
 export interface Artist {
   id: number;
   name: string;
@@ -30,11 +13,12 @@ export interface Artist {
   socials: {
     instagram: string;
     spotify: string;
-    // MODIFICADO: Trocamos appleMusic por youtube e adicionamos pressKit
     youtube: string;
     pressKit: string;
   };
   heroVideo: string;
-  topTracks: Track[];
-  videos: Video[];
+  // NOVO: Adicionados campos para os embeds
+  spotifyEmbedUrl: string;
+  youtubeEmbedUrl: string;
+  // REMOVIDO: topTracks e videos não são mais necessários
 }
