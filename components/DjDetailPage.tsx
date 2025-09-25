@@ -50,7 +50,6 @@ const DjHeader: React.FC<{onBack: () => void}> = ({onBack}) => {
              <button onClick={onBack} className="bg-black/30 backdrop-blur-sm p-3 rounded-full hover:bg-black/50 transition-colors">
                 <ArrowLeft size={20} />
              </button>
-             {/* MODIFICADO: Removido 'hidden' e ajustado espaçamento para mobile */}
              <nav className="flex items-center space-x-4 md:space-x-8 bg-black/30 backdrop-blur-sm px-6 py-2 rounded-full">
               <button onClick={() => scrollToSection('musicas')} className="hover:text-cyan-400 transition-colors text-sm md:text-base">MÚSICA</button>
               <button onClick={() => scrollToSection('visualizers')} className="hover:text-cyan-400 transition-colors text-sm md:text-base">VISUALIZERS</button>
@@ -119,12 +118,13 @@ const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
         </button>
       </section>
 
-      <section id="musicas" className="py-16">
+      {/* MODIFICADO: Espaçamento vertical reduzido de py-16 para pt-16 pb-8 */}
+      <section id="musicas" className="pt-16 pb-8">
         <div className="container mx-auto px-6 text-center max-w-3xl">
-          <h2 className="text-4xl font-black mb-12 text-cyan-400">MÚSICAS</h2>
+          {/* MODIFICADO: Espaçamento do título reduzido de mb-12 para mb-8 */}
+          <h2 className="text-4xl font-black mb-8 text-cyan-400">MÚSICAS</h2>
           
           <div className="rounded-2xl border border-gray-800 card-glow overflow-hidden">
-            {/* MODIFICADO: Altura do player do Spotify alterada para 152 */}
             <iframe
               src={artist.spotifyEmbedUrl}
               width="100%"
@@ -138,9 +138,11 @@ const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
         </div>
       </section>
       
-      <section id="visualizers" className="py-16">
+      {/* MODIFICADO: Espaçamento vertical reduzido de py-16 para py-8 */}
+      <section id="visualizers" className="py-8">
         <div className="container mx-auto px-6 text-center max-w-4xl">
-            <h2 className="text-4xl font-black mb-12 text-cyan-400">VISUALIZERS</h2>
+            {/* MODIFICADO: Espaçamento do título reduzido de mb-12 para mb-8 */}
+            <h2 className="text-4xl font-black mb-8 text-cyan-400">VISUALIZERS</h2>
             <div className="aspect-video w-full rounded-2xl border border-gray-800 card-glow overflow-hidden">
               <iframe 
                 className="w-full h-full"
@@ -155,9 +157,11 @@ const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
         </div>
       </section>
 
-      <section id="sobre" className="py-16">
+      {/* MODIFICADO: Espaçamento vertical reduzido de py-16 para pt-8 pb-16 */}
+      <section id="sobre" className="pt-8 pb-16">
         <div className="container mx-auto px-6 max-w-4xl">
-          <h2 className="text-4xl font-black mb-12 text-cyan-400 text-center">SOBRE</h2>
+          {/* MODIFICADO: Espaçamento do título reduzido de mb-12 para mb-8 */}
+          <h2 className="text-4xl font-black mb-8 text-cyan-400 text-center">SOBRE</h2>
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <div className="w-full md:w-1/3 flex-shrink-0">
               <img
@@ -175,7 +179,6 @@ const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
         </div>
       </section>
 
-      {/* MODIFICADO: Espaçamento inferior do botão Contrate aumentado */}
       <a href="#" className="fixed bottom-8 right-6 flex items-center gap-3 bg-green-500 text-white font-bold py-3 px-6 rounded-full hover:bg-green-600 transition-colors transform hover:scale-105 shadow-lg shadow-green-500/30 z-40">
         CONTRATE
       </a>
