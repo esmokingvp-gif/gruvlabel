@@ -2,7 +2,6 @@ import React from 'react';
 import { Artist } from '../types';
 import { Instagram, FileText, Calendar, LineChart, Send, MonitorPlay } from 'lucide-react';
 
-// CORREÇÃO: A interface que estava faltando foi adicionada aqui
 interface MainPageProps {
   artists: Artist[];
   onSelectArtist: (artist: Artist) => void;
@@ -44,8 +43,10 @@ const Header: React.FC = () => {
   };
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-sm">
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <Logo className="h-12 w-auto" />
+      {/* MODIFICADO: Reduzido padding vertical de py-4 para py-2 */}
+      <div className="container mx-auto px-6 py-2 flex justify-between items-center">
+        {/* MODIFICADO: Tamanho do logo aumentado de h-12 para h-14 */}
+        <Logo className="h-14 w-auto" />
         <nav className="hidden md:flex items-center space-x-8">
           <button onClick={() => scrollToSection('home')} className="hover:text-cyan-400 transition-colors">INÍCIO</button>
           <button onClick={() => scrollToSection('artistas')} className="hover:text-cyan-400 transition-colors">ARTISTAS</button>
@@ -120,7 +121,6 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
   return (
     <>
       <Header />
-      {/* MODIFICADO: Adicionado 'bg-black' ao contêiner principal */}
       <main className="bg-black">
         <section id="home" className="min-h-screen flex items-center justify-center text-center relative overflow-hidden">
           <video 
@@ -162,10 +162,10 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
           </div>
         </section>
 
-        {/* MODIFICADO: Removido 'bg-[#0D0D0D]' */}
         <section id="artistas" className="py-24">
           <div className="container mx-auto px-6 text-center">
-            <h2 className="text-4xl font-black mb-12 text-cyan-400">NOSSOS ARTISTAS</h2>
+            {/* MODIFICADO: Tamanho do título reduzido de text-4xl para text-3xl */}
+            <h2 className="text-2xl font-black mb-12 text-cyan-400">NOSSOS ARTISTAS</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {artists.map(artist => (
                 <ArtistCard key={artist.id} artist={artist} onSelectArtist={onSelectArtist} />
@@ -174,10 +174,10 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
           </div>
         </section>
 
-        {/* MODIFICADO: Removido 'bg-[#111111]' */}
         <section id="sobre" className="py-24">
           <div className="container mx-auto px-6 text-center max-w-4xl">
-            <h2 className="text-4xl font-black mb-8 text-cyan-400">SOBRE A GRUV LABEL</h2>
+            {/* MODIFICADO: Tamanho do título reduzido de text-4xl para text-3xl */}
+            <h2 className="text-2xl font-black mb-8 text-cyan-400">SOBRE A GRUV LABEL</h2>
             <p className="text-gray-300 leading-relaxed mb-4">
               A <span className="text-cyan-400 font-semibold">Gruv Label</span> é uma agência especializada em bookings e agenciamento de artistas.
             </p>
@@ -193,10 +193,10 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
           </div>
         </section>
 
-        {/* MODIFICADO: Removido 'bg-[#0D0D0D]' */}
         <section id="contato" className="py-24">
             <div className="container mx-auto px-6 text-center">
-                <h2 className="text-4xl font-black mb-8 text-cyan-400">CONTATO</h2>
+                {/* MODIFICADO: Tamanho do título reduzido de text-4xl para text-3xl */}
+                <h2 className="text-2xl font-black mb-8 text-cyan-400">CONTATO</h2>
                  <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                     <a href="#" className="flex items-center justify-center gap-3 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white font-bold py-3 px-8 rounded-full hover:opacity-90 transition-opacity duration-300 transform hover:scale-105">
                         <Instagram size={20} /> @gruvlabel
@@ -209,7 +209,6 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
         </section>
       </main>
 
-      {/* MODIFICADO: Removido 'bg-[#111111]' */}
       <footer className="py-8">
         <div className="container mx-auto px-6 text-center text-gray-500">
             <Logo className="h-14 w-auto mx-auto mb-4" />
