@@ -1,7 +1,7 @@
 import React from 'react';
 import { Artist } from '../types';
-// MODIFICADO: Adicionado Youtube e FileText
-import { Instagram, Music, Youtube, FileText, Calendar, LineChart, Send, MonitorPlay } from 'lucide-react';
+// MODIFICADO: Removido 'Youtube' e mantido o resto
+import { Instagram, Music, FileText, Calendar, LineChart, Send, MonitorPlay } from 'lucide-react';
 
 interface MainPageProps {
   artists: Artist[];
@@ -15,6 +15,19 @@ const Logo: React.FC<{ className?: string }> = ({ className = '' }) => (
     className={className} 
   />
 );
+
+// NOVO: Componente de ícone personalizado para o YouTube
+const YoutubeIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    viewBox="0 0 24 24" 
+    fill="currentColor" 
+    className={className}
+  >
+    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+  </svg>
+);
+
 
 const Header: React.FC = () => {
   // ... (código do header sem alterações)
@@ -53,13 +66,26 @@ const ArtistCard: React.FC<{ artist: Artist; onSelectArtist: (artist: Artist) =>
           <p className="text-sm text-gray-400 mb-1">{artist.stats.monthlyListeners}</p>
           <p className="text-sm text-gray-400 mb-1">{artist.stats.subscribers}</p>
           <p className="text-sm text-gray-400 mb-4">{artist.stats.views}</p>
-          {/* MODIFICADO: Atualizado para 4 botões com os links corretos */}
-          <div className="flex justify-center space-x-4 mb-6">
-            <a href={artist.socials.instagram} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700/50 rounded-full hover:bg-cyan-400/20 transition-colors"><Instagram size={20}/></a>
+          
+          <div className="flex justify-center items-center gap-3 mb-6">
             <a href={artist.socials.spotify} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700/50 rounded-full hover:bg-cyan-400/20 transition-colors"><Music size={20}/></a>
-            <a href={artist.socials.youtube} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700/50 rounded-full hover:bg-cyan-400/20 transition-colors"><Youtube size={20}/></a>
-            <a href={artist.socials.pressKit} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700/50 rounded-full hover:bg-cyan-400/20 transition-colors"><FileText size={20}/></a>
+            {/* MODIFICADO: Trocado o ícone do Lucide pelo nosso ícone SVG personalizado */}
+            <a href={artist.socials.youtube} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700/50 rounded-full hover:bg-cyan-400/20 transition-colors">
+              <YoutubeIcon className="w-5 h-5" />
+            </a>
+            <a href={artist.socials.instagram} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700/50 rounded-full hover:bg-cyan-400/20 transition-colors"><Instagram size={20}/></a>
+            
+            <a 
+              href={artist.socials.pressKit} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex items-center gap-2 text-sm font-semibold py-2 px-4 bg-gray-700/50 rounded-full hover:bg-cyan-400/20 transition-colors"
+            >
+              <FileText size={16}/>
+              <span>Press Kit</span>
+            </a>
           </div>
+
           <div className="space-y-2">
             <button onClick={() => onSelectArtist(artist)} className="w-full bg-transparent border border-cyan-400 text-cyan-400 font-semibold py-3 px-6 rounded-lg hover:bg-cyan-400 hover:text-black transition-all duration-300">
               VER DETALHES
