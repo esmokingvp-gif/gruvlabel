@@ -37,16 +37,15 @@ const SpotifyIcon: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
-// NOVO: Componente de ícone personalizado para o WhatsApp
+// CORRIGIDO: O código SVG do ícone do WhatsApp foi substituído
 const WhatsappIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="currentColor"
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    fill="currentColor" 
     className={className}
+    viewBox="0 0 16 16"
   >
-    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.447-4.433-9.886-9.889-9.886-5.448 0-9.886 4.434-9.889 9.885.002 2.024.63 3.965 1.739 5.625l-1.12 4.069 4.163-1.096z" />
-    <path d="M9.06,8.11c-.13-.26-.26-.27-.39-.27-.13,0-.26,0-.39,0s-.33,.07-.52,.33-.72,.72-.72,1.76,0,2.02,.82,2.78,1.76,1.21,2.78,1.68,1.01,.36,1.34,.33c.33-.03,.95-.39,1.08-.78s.13-.72,0-.85-.13-.26-.26-.39-.26-.2-.39-.27c-.13,0-.26,0-.39,0s-.33,.07-.52,.33-.72,.72-.72,1.76,0,2.02,.82,2.78,1.76,1.21,2.78,1.68,1.01,.36,1.34,.33c.33-.03,.95-.39,1.08-.78s.13-.72,0-.85-.13-.26-.26-.39-.26-.2-.39-.27c-.13,0-.26,0-.39,0s-.33,.07-.52,.33-.72,.72-.72,1.76,0,2.02,.82,2.78,1.76,1.21,2.78,1.68,1.01,.36,1.34,.33c.33-.03,.95-.39,1.08-.78s.13-.72,0-.85c-.13-.13-.26-.26-.39-.39s-.26-.2-.39-.27c-.13,0-.26,0-.39,0s-.33,.07-.52,.33-.72,.72-.72,1.76,0,2.02,.82,2.78,1.76,1.21,2.78,1.68,1.01,.36,1.34,.33c.33-.03,.95-.39,1.08-.78s.13-.72,0-.85c-.13-.13-.26-.26-.39-.39s-.26-.2-.39-.27c-.13,0-.26,0-.39,0s-.33,.07-.52,.33-.72,.72-.72,1.76,0,2.02,.82,2.78,1.76,1.21,2.78,1.68,1.01,.36,1.34,.33c.33-.03,.95-.39,1.08-.78s.13-.72,0-.85-.13-.26-.26-.39-.26-.2-.39-.27c-.13,0-.26,0-.39,0Z"/>
+    <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
   </svg>
 );
 
@@ -155,13 +154,13 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
             </div>
             
             <div className="grid grid-cols-2 gap-4 w-full max-w-md my-auto">
-              {/* MODIFICADO: Estilo dos cards removido */}
-              <div className="p-3">
-                <p className="text-2xl font-bold text-cyan-400">8M+</p>
+              {/* MODIFICADO: Estilo dos cards restaurado e cor do texto alterada */}
+              <div className="bg-black/30 backdrop-blur-sm border border-gray-800 rounded-xl p-3">
+                <p className="text-2xl font-bold text-white">8M+</p>
                 <p className="text-xs text-gray-500">VISUALIZAÇÕES</p>
               </div>
-              <div className="p-3">
-                <p className="text-2xl font-bold text-cyan-400">260K+</p>
+              <div className="bg-black/30 backdrop-blur-sm border border-gray-800 rounded-xl p-3">
+                <p className="text-2xl font-bold text-white">260K+</p>
                 <p className="text-xs text-gray-500">OUVINTES/MÊS</p>
               </div>
             </div>
@@ -175,7 +174,8 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
 
         <section id="artistas" className="pt-16 pb-8">
           <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl font-black mb-10 text-cyan-400">NOSSOS ARTISTAS</h2>
+            {/* MODIFICADO: Cor do título alterada para branco */}
+            <h2 className="text-3xl font-black mb-10 text-white">NOSSOS ARTISTAS</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {artists.map(artist => (
                 <ArtistCard key={artist.id} artist={artist} onSelectArtist={onSelectArtist} />
@@ -186,7 +186,8 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
 
         <section id="sobre" className="py-8">
           <div className="container mx-auto px-6 text-center max-w-4xl">
-            <h2 className="text-3xl font-black mb-8 text-cyan-400">SOBRE A GRUV LABEL</h2>
+            {/* MODIFICADO: Cor do título alterada para branco */}
+            <h2 className="text-3xl font-black mb-8 text-white">SOBRE A GRUV LABEL</h2>
             <p className="text-gray-300 leading-relaxed mb-4">
               A <span className="text-cyan-400 font-semibold">Gruv Label</span> é uma agência especializada em bookings e agenciamento de artistas.
             </p>
@@ -204,8 +205,8 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
 
         <section id="contato" className="pt-8 pb-16">
             <div className="container mx-auto px-6 text-center">
-                <h2 className="text-3xl font-black mb-8 text-cyan-400">CONTATO</h2>
-                 {/* MODIFICADO: Botões de contato redesenhados */}
+                {/* MODIFICADO: Cor do título alterada para branco */}
+                <h2 className="text-3xl font-black mb-8 text-white">CONTATO</h2>
                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <a href="#" className="flex items-center justify-center gap-3 py-3 px-6 bg-black/30 backdrop-blur-sm rounded-full hover:bg-black/50 transition-colors font-semibold">
                         <Instagram size={20} /> @gruvlabel
