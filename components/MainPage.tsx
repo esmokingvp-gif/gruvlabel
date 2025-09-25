@@ -131,28 +131,22 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/70 z-10"></div>
           
-          <div className="relative z-20 p-6 flex flex-col items-center">
-            {/* MODIFICADO: Logo da GRUV removido daqui */}
+          {/* MODIFICADO: A estrutura interna foi refeita para melhor espaçamento */}
+          <div className="relative z-20 p-6 flex flex-col justify-between items-center h-full w-full max-w-4xl mx-auto py-24 md:py-32">
             
-            {/* MODIFICADO: Título com quebra de linha e tamanho ajustado */}
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-wider text-white leading-tight">
-              AGENCIAMENTO <br /> DE ARTISTAS
-            </h2>
-            <p className="text-gray-400 mt-2 max-w-lg mx-auto">Contrate os melhores DJs para o seu evento</p>
+            {/* Grupo 1: Textos */}
+            <div className="text-center">
+              <h2 className="text-2xl md:text-3xl font-semibold tracking-wider text-white leading-tight">
+                AGENCIAMENTO <br /> DE ARTISTAS
+              </h2>
+              <p className="text-gray-400 mt-2 max-w-lg mx-auto">Contrate os melhores DJs para o seu evento</p>
+            </div>
             
-            {/* MODIFICADO: Margem e tamanho dos cards de estatísticas ajustados */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 max-w-2xl mx-auto">
-              <div className="bg-black/30 backdrop-blur-sm border border-gray-800 rounded-xl p-3">
-                <p className="text-2xl font-bold text-cyan-400">19K+</p>
-                <p className="text-xs text-gray-500">INSCRITOS</p>
-              </div>
+            {/* Grupo 2: Estatísticas */}
+            <div className="grid grid-cols-2 gap-4 w-full max-w-md">
               <div className="bg-black/30 backdrop-blur-sm border border-gray-800 rounded-xl p-3">
                 <p className="text-2xl font-bold text-cyan-400">8M+</p>
                 <p className="text-xs text-gray-500">VISUALIZAÇÕES</p>
-              </div>
-              <div className="bg-black/30 backdrop-blur-sm border border-gray-800 rounded-xl p-3">
-                <p className="text-2xl font-bold text-cyan-400">232+</p>
-                <p className="text-xs text-gray-500">VÍDEOS</p>
               </div>
               <div className="bg-black/30 backdrop-blur-sm border border-gray-800 rounded-xl p-3">
                 <p className="text-2xl font-bold text-cyan-400">260K+</p>
@@ -160,15 +154,15 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
               </div>
             </div>
 
-            {/* MODIFICADO: Margem e tamanho dos botões ajustados */}
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })} className="bg-cyan-400 text-black font-bold py-3 px-8 rounded-full hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(0,242,234,0.5)]">CONTRATE AGORA</button>
-                <button onClick={() => document.getElementById('artistas')?.scrollIntoView({ behavior: 'smooth' })} className="bg-transparent border border-gray-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-gray-800 hover:border-gray-500 transition-all duration-300">NOSSOS ARTISTAS</button>
+            {/* Grupo 3: Botões */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md">
+                <button onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })} className="w-full sm:w-auto bg-cyan-400 text-black font-bold py-3 px-8 rounded-full hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(0,242,234,0.5)]">CONTRATE AGORA</button>
+                <button onClick={() => document.getElementById('artistas')?.scrollIntoView({ behavior: 'smooth' })} className="w-full sm:w-auto bg-transparent border border-gray-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-gray-800 hover:border-gray-500 transition-all duration-300">NOSSOS ARTISTAS</button>
             </div>
           </div>
         </section>
 
-        {/* MODIFICADO: Espaçamentos verticais e de títulos ajustados */}
+        {/* MODIFICADO: Espaçamentos verticais ajustados */}
         <section id="artistas" className="pt-16 pb-8">
           <div className="container mx-auto px-6 text-center">
             <h2 className="text-3xl font-black mb-10 text-cyan-400">NOSSOS ARTISTAS</h2>
