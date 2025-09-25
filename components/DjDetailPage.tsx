@@ -179,7 +179,7 @@ const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
         </div>
       </section>
 
-      <a href="#" className="fixed bottom-8 right-6 flex items-center gap-3 bg-green-500 text-white font-bold py-3 px-6 rounded-full hover:bg-green-600 transition-colors transform hover:scale-105 shadow-lg shadow-green-500/30 z-40">
+      <a href="#" className="fixed bottom-8 right-6 flex items-center gap-3 bg-cyan-400 text-black font-bold py-2 px-5 rounded-full hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(0,242,234,0.5)]">
         CONTRATE
       </a>
 

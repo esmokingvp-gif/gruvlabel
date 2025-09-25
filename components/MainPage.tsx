@@ -2,6 +2,7 @@ import React from 'react';
 import { Artist } from '../types';
 import { Instagram, FileText, Calendar, LineChart, Send, MonitorPlay } from 'lucide-react';
 
+// CORREÇÃO: A interface que estava faltando foi adicionada aqui
 interface MainPageProps {
   artists: Artist[];
   onSelectArtist: (artist: Artist) => void;
@@ -26,7 +27,6 @@ const YoutubeIcon: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
-// CORRIGIDO: O código SVG do ícone do Spotify foi substituído pelo que você forneceu
 const SpotifyIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
@@ -43,7 +43,7 @@ const Header: React.FC = () => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0D0D0D]/80 backdrop-blur-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-sm">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <Logo className="h-12 w-auto" />
         <nav className="hidden md:flex items-center space-x-8">
@@ -76,19 +76,19 @@ const ArtistCard: React.FC<{ artist: Artist; onSelectArtist: (artist: Artist) =>
           <p className="text-sm text-gray-400 mb-4">{artist.stats.views}</p>
           
           <div className="flex justify-center items-center gap-3 mb-6">
-            <a href={artist.socials.spotify} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700/50 rounded-full hover:bg-cyan-400/20 transition-colors">
+            <a href={artist.socials.spotify} target="_blank" rel="noopener noreferrer" className="p-2 bg-black/30 backdrop-blur-sm rounded-full hover:bg-black/50 transition-colors">
               <SpotifyIcon className="w-5 h-5" />
             </a>
-            <a href={artist.socials.youtube} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700/50 rounded-full hover:bg-cyan-400/20 transition-colors">
+            <a href={artist.socials.youtube} target="_blank" rel="noopener noreferrer" className="p-2 bg-black/30 backdrop-blur-sm rounded-full hover:bg-black/50 transition-colors">
               <YoutubeIcon className="w-5 h-5" />
             </a>
-            <a href={artist.socials.instagram} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700/50 rounded-full hover:bg-cyan-400/20 transition-colors"><Instagram size={20}/></a>
+            <a href={artist.socials.instagram} target="_blank" rel="noopener noreferrer" className="p-2 bg-black/30 backdrop-blur-sm rounded-full hover:bg-black/50 transition-colors"><Instagram size={20}/></a>
             
             <a 
               href={artist.socials.pressKit} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="flex items-center gap-2 text-sm font-semibold py-2 px-4 bg-gray-700/50 rounded-full hover:bg-cyan-400/20 transition-colors"
+              className="flex items-center gap-2 text-sm font-semibold py-2 px-4 bg-black/30 backdrop-blur-sm rounded-full hover:bg-black/50 transition-colors"
             >
               <FileText size={16}/>
               <span>Press Kit</span>
@@ -120,7 +120,8 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
   return (
     <>
       <Header />
-      <main>
+      {/* MODIFICADO: Adicionado 'bg-black' ao contêiner principal */}
+      <main className="bg-black">
         <section id="home" className="min-h-screen flex items-center justify-center text-center relative overflow-hidden">
           <video 
             autoPlay
@@ -137,19 +138,19 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
             <h2 className="text-2xl md:text-3xl font-semibold tracking-wider text-white mt-4">AGENCIAMENTO DE ARTISTAS</h2>
             <p className="text-gray-400 mt-4 max-w-lg mx-auto">Contrate os melhores DJs para o seu evento</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-4xl mx-auto">
-              <div className="bg-[#1A1A1A]/50 backdrop-blur-sm border border-gray-800 rounded-xl p-4">
+              <div className="bg-black/30 backdrop-blur-sm border border-gray-800 rounded-xl p-4">
                 <p className="text-3xl font-bold text-cyan-400">19K+</p>
                 <p className="text-xs text-gray-500">INSCRITOS</p>
               </div>
-              <div className="bg-[#1A1A1A]/50 backdrop-blur-sm border border-gray-800 rounded-xl p-4">
+              <div className="bg-black/30 backdrop-blur-sm border border-gray-800 rounded-xl p-4">
                 <p className="text-3xl font-bold text-cyan-400">8M+</p>
                 <p className="text-xs text-gray-500">VISUALIZAÇÕES</p>
               </div>
-              <div className="bg-[#1A1A1A]/50 backdrop-blur-sm border border-gray-800 rounded-xl p-4">
+              <div className="bg-black/30 backdrop-blur-sm border border-gray-800 rounded-xl p-4">
                 <p className="text-3xl font-bold text-cyan-400">232+</p>
                 <p className="text-xs text-gray-500">VÍDEOS</p>
               </div>
-              <div className="bg-[#1A1A1A]/50 backdrop-blur-sm border border-gray-800 rounded-xl p-4">
+              <div className="bg-black/30 backdrop-blur-sm border border-gray-800 rounded-xl p-4">
                 <p className="text-3xl font-bold text-cyan-400">260K+</p>
                 <p className="text-xs text-gray-500">OUVINTES/MÊS</p>
               </div>
@@ -161,7 +162,8 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
           </div>
         </section>
 
-        <section id="artistas" className="py-24 bg-[#0D0D0D]">
+        {/* MODIFICADO: Removido 'bg-[#0D0D0D]' */}
+        <section id="artistas" className="py-24">
           <div className="container mx-auto px-6 text-center">
             <h2 className="text-4xl font-black mb-12 text-cyan-400">NOSSOS ARTISTAS</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -172,7 +174,8 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
           </div>
         </section>
 
-        <section id="sobre" className="py-24 bg-[#111111]">
+        {/* MODIFICADO: Removido 'bg-[#111111]' */}
+        <section id="sobre" className="py-24">
           <div className="container mx-auto px-6 text-center max-w-4xl">
             <h2 className="text-4xl font-black mb-8 text-cyan-400">SOBRE A GRUV LABEL</h2>
             <p className="text-gray-300 leading-relaxed mb-4">
@@ -190,7 +193,8 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
           </div>
         </section>
 
-        <section id="contato" className="py-24 bg-[#0D0D0D]">
+        {/* MODIFICADO: Removido 'bg-[#0D0D0D]' */}
+        <section id="contato" className="py-24">
             <div className="container mx-auto px-6 text-center">
                 <h2 className="text-4xl font-black mb-8 text-cyan-400">CONTATO</h2>
                  <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -205,7 +209,8 @@ const MainPage: React.FC<MainPageProps> = ({ artists, onSelectArtist }) => {
         </section>
       </main>
 
-      <footer className="bg-[#111111] py-8">
+      {/* MODIFICADO: Removido 'bg-[#111111]' */}
+      <footer className="py-8">
         <div className="container mx-auto px-6 text-center text-gray-500">
             <Logo className="h-14 w-auto mx-auto mb-4" />
             <p className="text-sm mb-4">&copy; 2025 Gruv Label. Todos os direitos reservados.</p>
