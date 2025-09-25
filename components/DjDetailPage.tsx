@@ -1,12 +1,6 @@
 import React from 'react';
 import { Artist } from '../types';
-import { ArrowLeft, ChevronDown, FileText, Instagram, MoreHorizontal, SkipBack, SkipForward, Pause, Plus } from 'lucide-react';
-
-// CORREÇÃO: A interface que estava faltando foi adicionada aqui
-interface DjDetailPageProps {
-  artist: Artist;
-  onBack: () => void;
-}
+import { ArrowLeft, ChevronDown, FileText, Instagram } from 'lucide-react';
 
 // Ícone personalizado para o YouTube
 const YoutubeIcon: React.FC<{ className?: string }> = ({ className }) => (
@@ -32,6 +26,10 @@ const SpotifyIcon: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
+interface DjDetailPageProps {
+  artist: Artist;
+  onBack: () => void;
+}
 
 const DjHeader: React.FC<{onBack: () => void}> = ({onBack}) => {
     const scrollToSection = (id: string) => {
@@ -61,7 +59,7 @@ const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
     };
 
   return (
-    <div className="relative">
+    <div className="relative bg-black">
       <DjHeader onBack={onBack}/>
 
       <section className="h-screen w-full relative flex flex-col items-center justify-center text-center text-white overflow-hidden">
@@ -85,7 +83,8 @@ const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
             <p className="text-xl md:text-2xl font-semibold text-cyan-400 tracking-widest mt-4">{artist.tagline}</p>
         </div>
 
-        <div className="absolute bottom-24 z-20 flex justify-center items-center gap-3">
+        {/* MODIFICADO: Alterada a classe de 'bottom-24' para 'bottom-28' */}
+        <div className="absolute bottom-28 z-20 flex justify-center items-center gap-3">
           <a href={artist.socials.spotify} target="_blank" rel="noopener noreferrer" className="p-3 bg-black/30 backdrop-blur-sm rounded-full hover:bg-black/50 transition-colors">
             <SpotifyIcon className="w-6 h-6" />
           </a>
@@ -111,7 +110,7 @@ const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
         </button>
       </section>
 
-      <section id="musicas" className="py-24 bg-[#0D0D0D]">
+      <section id="musicas" className="py-24">
         <div className="container mx-auto px-6 text-center max-w-3xl">
           <h2 className="text-4xl font-black mb-12 text-cyan-400">MÚSICAS</h2>
           
@@ -129,7 +128,7 @@ const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
         </div>
       </section>
       
-      <section id="visualizers" className="py-24 bg-[#111111]">
+      <section id="visualizers" className="py-24">
         <div className="container mx-auto px-6 text-center max-w-4xl">
             <h2 className="text-4xl font-black mb-12 text-cyan-400">VISUALIZERS</h2>
             <div className="aspect-video w-full rounded-2xl border border-gray-800 card-glow overflow-hidden">
