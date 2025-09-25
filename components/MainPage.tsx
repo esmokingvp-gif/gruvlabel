@@ -1,7 +1,7 @@
 import React from 'react';
 import { Artist } from '../types';
-// MODIFICADO: Removido 'Youtube' e mantido o resto
-import { Instagram, Music, FileText, Calendar, LineChart, Send, MonitorPlay } from 'lucide-react';
+// MODIFICADO: Removido 'Music' e mantido o resto
+import { Instagram, FileText, Calendar, LineChart, Send, MonitorPlay } from 'lucide-react';
 
 interface MainPageProps {
   artists: Artist[];
@@ -16,7 +16,7 @@ const Logo: React.FC<{ className?: string }> = ({ className = '' }) => (
   />
 );
 
-// NOVO: Componente de ícone personalizado para o YouTube
+// Ícone personalizado para o YouTube
 const YoutubeIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
@@ -28,6 +28,17 @@ const YoutubeIcon: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
+// NOVO: Componente de ícone personalizado para o Spotify
+const SpotifyIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    viewBox="0 0 24 24" 
+    fill="currentColor" 
+    className={className}
+  >
+    <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm4.414 14.242c-.268.445-.85.58-1.295.312-2.5-1.5-5.63-1.832-9.303-.984-.522.12-.992-.225-.114-.746.12-.522.59-.867.747-1.002 4.103-.943 7.633-.538 10.493 1.133.445.268.58.85.312 1.295zm1.5-3.03c-.32.533-1.02.7-1.553.38-2.835-1.72-7.07-2.22-10.42-1.21-.62.18-1.27-.19-1.45-.81-.18-.62.19-1.27.81-1.45 3.86-1.12 8.59-.57 11.85 1.42.53.32.7 1.02.38 1.55zm.11-3.21c-3.48-2.01-9.21-2.2-12.82-.12-.72.24-1.49-.2-1.73-.92-.24-.72.2-1.49.92-1.73 4.12-2.32 10.45-2.04 14.46 2.26.63.36.87 1.14.51 1.77-.36.63-1.14.87-1.77.51z"/>
+  </svg>
+);
 
 const Header: React.FC = () => {
   // ... (código do header sem alterações)
@@ -68,8 +79,10 @@ const ArtistCard: React.FC<{ artist: Artist; onSelectArtist: (artist: Artist) =>
           <p className="text-sm text-gray-400 mb-4">{artist.stats.views}</p>
           
           <div className="flex justify-center items-center gap-3 mb-6">
-            <a href={artist.socials.spotify} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700/50 rounded-full hover:bg-cyan-400/20 transition-colors"><Music size={20}/></a>
             {/* MODIFICADO: Trocado o ícone do Lucide pelo nosso ícone SVG personalizado */}
+            <a href={artist.socials.spotify} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700/50 rounded-full hover:bg-cyan-400/20 transition-colors">
+              <SpotifyIcon className="w-5 h-5" />
+            </a>
             <a href={artist.socials.youtube} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700/50 rounded-full hover:bg-cyan-400/20 transition-colors">
               <YoutubeIcon className="w-5 h-5" />
             </a>
