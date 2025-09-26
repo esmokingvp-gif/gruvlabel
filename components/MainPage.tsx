@@ -18,7 +18,7 @@ const Logo: React.FC<{ className?: string }> = ({ className = '' }) => (
 const YoutubeIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
-    viewBox="0 0 24 24" 
+    viewBox="0 0 24" 
     fill="currentColor" 
     className={className}
   >
@@ -26,21 +26,22 @@ const YoutubeIcon: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
-// CORRIGIDO: O código SVG do ícone do Spotify foi substituído por um limpo e funcional.
 const SpotifyIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="currentColor"
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    fill="currentColor" 
     className={className}
+    viewBox="0 0 16 16"
   >
-    <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm4.414 14.242c-.268.445-.85.58-1.295.312-2.5-1.5-5.63-1.832-9.303-.984-.522.12-.992-.225-.114-.746.12-.522.59-.867.747-1.002 4.103-.943 7.633-.538 10.493 1.133.445.268.58.85.312 1.295zm1.5-3.03c-.32.533-1.02.7-1.553.38-2.835-1.72-7.07-2.22-10.42-1.21-.62.18-1.27-.19-1.45-.81-.18-.62.19-1.27.81-1.45 3.86-1.12 8.59-.57 11.85 1.42.53.32.7 1.02.38 1.55zm.11-3.21c-3.48-2.01-9.21-2.2-12.82-.12-.72.24-1.49-.2-1.73-.92-.24-.72.2-1.49.92-1.73 4.12-2.32 10.45-2.04 14.46 2.26.63.36.87 1.14.51 1.77-.36.63-1.14.87-1.77.51z"/>
+    <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.669 11.538a.5.5 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686m.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858m.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288"/>
   </svg>
 );
 
 const WhatsappIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
+    width="16" 
+    height="16" 
     fill="currentColor" 
     className={className}
     viewBox="0 0 16 16"
@@ -51,6 +52,12 @@ const WhatsappIcon: React.FC<{ className?: string }> = ({ className }) => (
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  const whatsappUrl = "https://wa.me/5547997644727?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20Gr%C3%BCv%20Label.";
+
+  const handleContrateClick = () => {
+    window.open(whatsappUrl, '_blank');
+  };
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -68,7 +75,7 @@ const Header: React.FC = () => {
             <button onClick={() => scrollToSection('artistas')} className="hover:text-cyan-400 transition-colors">ARTISTAS</button>
             <button onClick={() => scrollToSection('sobre')} className="hover:text-cyan-400 transition-colors">SOBRE</button>
           </nav>
-          <button onClick={() => scrollToSection('contato')} className="hidden md:block bg-cyan-400 text-black font-bold py-2 px-5 rounded-full hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(0,242,234,0.5)]">
+          <button onClick={handleContrateClick} className="hidden md:block bg-cyan-400 text-black font-bold py-2 px-5 rounded-full hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(0,242,234,0.5)]">
             CONTRATE
           </button>
 
@@ -92,7 +99,7 @@ const Header: React.FC = () => {
           <button onClick={() => scrollToSection('home')} className="text-xl hover:text-cyan-400 transition-colors">INÍCIO</button>
           <button onClick={() => scrollToSection('artistas')} className="text-xl hover:text-cyan-400 transition-colors">ARTISTAS</button>
           <button onClick={() => scrollToSection('sobre')} className="text-xl hover:text-cyan-400 transition-colors">SOBRE</button>
-          <button onClick={() => scrollToSection('contato')} className="mt-8 bg-cyan-400 text-black font-bold py-3 px-8 rounded-full hover:bg-cyan-300 transition-colors">
+          <button onClick={handleContrateClick} className="mt-8 bg-cyan-400 text-black font-bold py-3 px-8 rounded-full hover:bg-cyan-300 transition-colors">
             CONTRATE
           </button>
         </nav>
@@ -108,6 +115,8 @@ const ArtistCard: React.FC<{ artist: Artist }> = ({ artist }) => {
     window.scrollTo(0, 0);
     navigate(`/${artist.slug}`);
   };
+
+  const artistWhatsappUrl = `https://wa.me/5547997644727?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20${encodeURIComponent(artist.name)}`;
 
   return (
     <div className="group relative aspect-[3/4] border border-gray-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2 card-glow">
@@ -148,9 +157,14 @@ const ArtistCard: React.FC<{ artist: Artist }> = ({ artist }) => {
             <button onClick={handleSelectArtist} className="w-full bg-black/30 backdrop-blur-sm border border-gray-800 text-white font-semibold py-3 px-6 rounded-lg hover:bg-black/50 transition-all duration-300">
               VER DETALHES
             </button>
-            <button onClick={handleSelectArtist} className="w-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-bold py-3 px-6 rounded-lg hover:bg-white/20 transition-all duration-300">
+            <a 
+              href={artistWhatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-bold py-3 px-6 rounded-lg hover:bg-white/20 transition-all duration-300"
+            >
               CONTRATAR {artist.name.toUpperCase().split(' ')[1]}
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -166,6 +180,8 @@ const ServiceCard: React.FC<{ icon: React.ReactNode; title: string }> = ({ icon,
 );
 
 const MainPage: React.FC<MainPageProps> = ({ artists }) => {
+  const whatsappUrl = "https://wa.me/5547997644727?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20Gr%C3%BCv%20Label.";
+
   return (
     <>
       <Header />
@@ -193,7 +209,9 @@ const MainPage: React.FC<MainPageProps> = ({ artists }) => {
             <div className="my-auto"></div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md">
-                <button onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })} className="w-full sm:w-auto bg-cyan-400 text-black font-bold py-3 px-8 rounded-full hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(0,242,234,0.5)]">CONTRATE AGORA</button>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-cyan-400 text-black font-bold py-3 px-8 rounded-full hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(0,242,234,0.5)]">
+                  CONTRATE AGORA
+                </a>
                 <button onClick={() => document.getElementById('artistas')?.scrollIntoView({ behavior: 'smooth' })} className="w-full sm:w-auto bg-transparent border border-gray-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-gray-800 hover:border-gray-500 transition-all duration-300">NOSSOS ARTISTAS</button>
             </div>
           </div>
@@ -232,10 +250,10 @@ const MainPage: React.FC<MainPageProps> = ({ artists }) => {
             <div className="container mx-auto px-6 text-center">
                 <h2 className="text-3xl font-black mb-8 text-white">CONTATO</h2>
                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#" className="flex items-center justify-center gap-3 py-3 px-6 bg-black/30 backdrop-blur-sm rounded-full hover:bg-black/50 transition-colors font-semibold">
+                    <a href="https://instagram.com/gruvlabel" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 py-3 px-6 bg-black/30 backdrop-blur-sm rounded-full hover:bg-black/50 transition-colors font-semibold">
                         <Instagram size={20} /> @gruvlabel
                     </a>
-                    <a href="#" className="flex items-center justify-center gap-3 py-3 px-6 bg-black/30 backdrop-blur-sm rounded-full hover:bg-black/50 transition-colors font-semibold">
+                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 py-3 px-6 bg-black/30 backdrop-blur-sm rounded-full hover:bg-black/50 transition-colors font-semibold">
                         <WhatsappIcon className="w-5 h-5" /> WhatsApp
                     </a>
                 </div>
@@ -247,7 +265,7 @@ const MainPage: React.FC<MainPageProps> = ({ artists }) => {
         <div className="container mx-auto px-6 text-center text-gray-500">
             <Logo className="h-14 w-auto mx-auto mb-4" />
             <p className="text-sm mb-4">&copy; 2025 Gruv Label. Todos os direitos reservados.</p>
-            <a href="#" className="inline-block p-2 hover:text-cyan-400 transition-colors"><Instagram size={20}/></a>
+            <a href="https://instagram.com/gruvlabel" target="_blank" rel="noopener noreferrer" className="inline-block p-2 hover:text-cyan-400 transition-colors"><Instagram size={20}/></a>
         </div>
       </footer>
     </>
