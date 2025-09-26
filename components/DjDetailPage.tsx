@@ -138,7 +138,7 @@ const DjDetailPage: React.FC = () => {
 
       <section id="musicas" className="pt-16 pb-8">
         <div className="container mx-auto px-6 text-center max-w-3xl">
-          <h2 className="text-4xl font-black mb-8 text-cyan-400">MÚSICAS</h2>
+          <h2 className="text-4xl font-black mb-8 text-white">MÚSICAS</h2>
           
           <div className="rounded-2xl border border-gray-800 card-glow overflow-hidden">
             <iframe
@@ -156,7 +156,7 @@ const DjDetailPage: React.FC = () => {
       
       <section id="visualizers" className="py-8">
         <div className="container mx-auto px-6 text-center max-w-4xl">
-            <h2 className="text-4xl font-black mb-8 text-cyan-400">VISUALIZERS</h2>
+            <h2 className="text-4xl font-black mb-8 text-white">VISUALIZERS</h2>
             <div className="aspect-video w-full rounded-2xl border border-gray-800 card-glow overflow-hidden">
               <iframe 
                 className="w-full h-full"
@@ -173,7 +173,7 @@ const DjDetailPage: React.FC = () => {
 
       <section id="sobre" className="pt-8 pb-16">
         <div className="container mx-auto px-6 max-w-4xl">
-          <h2 className="text-4xl font-black mb-8 text-cyan-400 text-center">SOBRE</h2>
+          <h2 className="text-4xl font-black mb-8 text-white text-center">SOBRE</h2>
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <div className="w-full md:w-1/3 flex-shrink-0">
               <img
