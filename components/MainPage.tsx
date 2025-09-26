@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-// MODIFICADO: Importar useNavigate
 import { useNavigate } from 'react-router-dom';
 import { Artist } from '../types';
 import { Instagram, FileText, Calendar, LineChart, Send, MonitorPlay, Menu, X } from 'lucide-react';
 
-// MODIFICADO: A interface MainPageProps foi atualizada
 interface MainPageProps {
   artists: Artist[];
 }
@@ -104,7 +102,6 @@ const Header: React.FC = () => {
   );
 };
 
-// MODIFICADO: props atualizadas
 const ArtistCard: React.FC<{ artist: Artist }> = ({ artist }) => {
   const navigate = useNavigate();
 
@@ -149,7 +146,6 @@ const ArtistCard: React.FC<{ artist: Artist }> = ({ artist }) => {
           </div>
 
           <div className="space-y-2">
-            {/* MODIFICADO: onClick agora chama handleSelectArtist */}
             <button onClick={handleSelectArtist} className="w-full bg-black/30 backdrop-blur-sm border border-gray-800 text-white font-semibold py-3 px-6 rounded-lg hover:bg-black/50 transition-all duration-300">
               VER DETALHES
             </button>
@@ -170,7 +166,6 @@ const ServiceCard: React.FC<{ icon: React.ReactNode; title: string }> = ({ icon,
     </div>
 );
 
-// MODIFICADO: A prop onSelectArtist foi removida
 const MainPage: React.FC<MainPageProps> = ({ artists }) => {
   return (
     <>
@@ -210,7 +205,6 @@ const MainPage: React.FC<MainPageProps> = ({ artists }) => {
             <h2 className="text-3xl font-black mb-10 text-white">NOSSOS ARTISTAS</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {artists.map(artist => (
-                // MODIFICADO: onSelectArtist não é mais passado
                 <ArtistCard key={artist.id} artist={artist} />
               ))}
             </div>
