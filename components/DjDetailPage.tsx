@@ -16,7 +16,7 @@ const YoutubeIcon: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
-// CORRIGIDO: O código SVG do ícone do Spotify foi substituído por um limpo e funcional.
+// Ícone SVG corrigido para o Spotify
 const SpotifyIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
@@ -81,6 +81,9 @@ const DjDetailPage: React.FC = () => {
         </div>
       );
     }
+
+    // URL do WhatsApp com mensagem específica para o artista
+    const artistWhatsappUrl = `https://wa.me/5547997644727?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20${encodeURIComponent(artist.name)}`;
 
   return (
     <div className="relative bg-black">
@@ -188,7 +191,13 @@ const DjDetailPage: React.FC = () => {
         </div>
       </section>
 
-      <a href="#" className="fixed bottom-8 right-6 flex items-center gap-3 bg-cyan-400 text-black font-bold py-2 px-5 rounded-full hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(0,242,234,0.5)]">
+      {/* MODIFICADO: Botão CONTRATE flutuante agora é um link para o WhatsApp */}
+      <a 
+        href={artistWhatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-8 right-6 flex items-center gap-3 bg-cyan-400 text-black font-bold py-2 px-5 rounded-full hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(0,242,234,0.5)] z-40"
+      >
         CONTRATE
       </a>
 
@@ -196,7 +205,8 @@ const DjDetailPage: React.FC = () => {
         <div className="container mx-auto px-6 text-center text-gray-500">
             <Logo className="h-14 w-auto mx-auto mb-4" />
             <p className="text-sm mb-4">&copy; 2025 Gruv Label. Todos os direitos reservados.</p>
-            <a href="#" className="inline-block p-2 hover:text-cyan-400 transition-colors"><Instagram size={20}/></a>
+            {/* MODIFICADO: Link do Instagram do rodapé atualizado */}
+            <a href="https://instagram.com/gruvlabel" target="_blank" rel="noopener noreferrer" className="inline-block p-2 hover:text-cyan-400 transition-colors"><Instagram size={20}/></a>
         </div>
       </footer>
     </div>
