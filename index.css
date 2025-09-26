@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Suas classes personalizadas aqui */
+.text-glow {
+  text-shadow: 0 0 8px #00f2ea, 0 0 10px #00f2ea;
+}
+
+.card-glow {
+  box-shadow: 0 0 15px rgba(0, 242, 234, 0.1);
+}

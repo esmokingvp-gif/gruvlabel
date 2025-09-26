@@ -1,5 +1,6 @@
 export interface Artist {
   id: number;
+  slug: string; // Adicionado para a URL
   name: string;
   tagline: string;
   image: string;
@@ -19,6 +20,5 @@ export interface Artist {
   heroVideo: string;
   spotifyEmbedUrl: string;
   youtubeEmbedUrl: string;
-  // NOVO: Adicionado campo para a biografia
   bio: string;
 }

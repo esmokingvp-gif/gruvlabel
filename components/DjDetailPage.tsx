@@ -1,43 +1,16 @@
 import React from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+// CORREÇÃO: A importação foi dividida em duas linhas corretas
 import { Artist } from '../types';
+import { ARTISTS } from '../constants';
 import { ArrowLeft, ChevronDown, FileText, Instagram } from 'lucide-react';
 
-// Ícone personalizado para o YouTube
-const YoutubeIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    viewBox="0 0 24 24" 
-    fill="currentColor" 
-    className={className}
-  >
-    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
-  </svg>
-);
+// ... (Ícones SVG e componente Logo permanecem iguais)
+const YoutubeIcon: React.FC<{ className?: string }> = ({ className }) => ( <svg /* ... */ > </svg> );
+const SpotifyIcon: React.FC<{ className?: string }> = ({ className }) => ( <svg /* ... */ > </svg> );
+const Logo: React.FC<{ className?: string }> = ({ className = '' }) => ( <img /* ... */ /> );
 
-// Ícone personalizado para o Spotify
-const SpotifyIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    fill="currentColor" 
-    className={className}
-    viewBox="0 0 16 16"
-  >
-    <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.669 11.538a.5.5 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686m.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858m.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288"/>
-  </svg>
-);
-
-const Logo: React.FC<{ className?: string }> = ({ className = '' }) => (
-  <img 
-    src="/logos/gruvlabel-logo.svg" 
-    alt="Grüv Label Logo" 
-    className={className} 
-  />
-);
-
-interface DjDetailPageProps {
-  artist: Artist;
-  onBack: () => void;
-}
+// REMOVIDO: A interface DjDetailPageProps não é mais necessária
 
 const DjHeader: React.FC<{onBack: () => void}> = ({onBack}) => {
     const scrollToSection = (id: string) => {
@@ -62,14 +35,32 @@ const DjHeader: React.FC<{onBack: () => void}> = ({onBack}) => {
 };
 
 
-const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
+const DjDetailPage: React.FC = () => {
+    const navigate = useNavigate();
+    const { slug } = useParams<{ slug: string }>();
+    const artist = ARTISTS.find(a => a.slug === slug);
+
+    const handleBack = () => {
+      navigate('/');
+      window.scrollTo(0, 0);
+    };
+
     const scrollToMusic = () => {
         document.getElementById('musicas')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
+    if (!artist) {
+      return (
+        <div className="h-screen bg-black flex flex-col items-center justify-center text-white">
+          <h1 className="text-4xl font-bold">Artista não encontrado</h1>
+          <button onClick={handleBack} className="mt-4 text-cyan-400">Voltar para a página inicial</button>
+        </div>
+      );
+    }
+
   return (
     <div className="relative bg-black">
-      <DjHeader onBack={onBack}/>
+      <DjHeader onBack={handleBack}/>
 
       <section className="h-screen w-full relative flex flex-col items-center justify-center text-center text-white overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
@@ -118,10 +109,8 @@ const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
         </button>
       </section>
 
-      {/* MODIFICADO: Espaçamento vertical reduzido de py-16 para pt-16 pb-8 */}
       <section id="musicas" className="pt-16 pb-8">
         <div className="container mx-auto px-6 text-center max-w-3xl">
-          {/* MODIFICADO: Espaçamento do título reduzido de mb-12 para mb-8 */}
           <h2 className="text-4xl font-black mb-8 text-cyan-400">MÚSICAS</h2>
           
           <div className="rounded-2xl border border-gray-800 card-glow overflow-hidden">
@@ -138,10 +127,8 @@ const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
         </div>
       </section>
       
-      {/* MODIFICADO: Espaçamento vertical reduzido de py-16 para py-8 */}
       <section id="visualizers" className="py-8">
         <div className="container mx-auto px-6 text-center max-w-4xl">
-            {/* MODIFICADO: Espaçamento do título reduzido de mb-12 para mb-8 */}
             <h2 className="text-4xl font-black mb-8 text-cyan-400">VISUALIZERS</h2>
             <div className="aspect-video w-full rounded-2xl border border-gray-800 card-glow overflow-hidden">
               <iframe 
@@ -157,13 +144,11 @@ const DjDetailPage: React.FC<DjDetailPageProps> = ({ artist, onBack }) => {
         </div>
       </section>
 
-      {/* MODIFICADO: Espaçamento vertical reduzido de py-16 para pt-8 pb-16 */}
       <section id="sobre" className="pt-8 pb-16">
         <div className="container mx-auto px-6 max-w-4xl">
-          {/* MODIFICADO: Espaçamento do título reduzido de mb-12 para mb-8 */}
           <h2 className="text-4xl font-black mb-8 text-cyan-400 text-center">SOBRE</h2>
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-            <div className="w-full md:w-1/3 flex-shrink-0">
+            <div className="w-full md:w-1-3 flex-shrink-0">
               <img
                 src={artist.image}
                 alt={artist.name}

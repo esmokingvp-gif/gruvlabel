@@ -1,30 +1,26 @@
-
-import React, { useState } from 'react';
-import { Artist } from './types';
-import { ARTISTS } from './constants';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import MainPage from './components/MainPage';
 import DjDetailPage from './components/DjDetailPage';
+import { ARTISTS } from './constants';
 
 const App: React.FC = () => {
-  const [selectedArtist, setSelectedArtist] = useState<Artist | null>(null);
-
-  const handleSelectArtist = (artist: Artist) => {
-    setSelectedArtist(artist);
-    window.scrollTo(0, 0);
-  };
-
-  const handleBack = () => {
-    setSelectedArtist(null);
-    window.scrollTo(0, 0);
-  };
-
   return (
-    <div className="bg-[#0D0D0D] min-h-screen text-gray-200">
-      {selectedArtist ? (
-        <DjDetailPage artist={selectedArtist} onBack={handleBack} />
-      ) : (
-        <MainPage artists={ARTISTS} onSelectArtist={handleSelectArtist} />
-      )}
+    // Removida a cor de fundo daqui, pois será controlada por cada página
+    <div className="min-h-screen text-gray-200">
+      <Routes>
+        {/* Rota 1: A página principal, em "/" */}
+        <Route 
+          path="/" 
+          element={<MainPage artists={ARTISTS} />} 
+        />
+        
+        {/* Rota 2: Uma rota dinâmica para cada DJ, ex: "/rodriz" */}
+        <Route 
+          path="/:slug" 
+          element={<DjDetailPage />} 
+        />
+      </Routes>
     </div>
   );
 };
