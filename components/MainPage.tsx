@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Artist } from '../types';
-import { Instagram, FileText, Calendar, LineChart, Send, MonitorPlay } from 'lucide-react';
+import { Instagram, FileText, Calendar, LineChart, Send, MonitorPlay, Menu, X } from 'lucide-react';
 
 interface MainPageProps {
   artists: Artist[];
@@ -37,7 +37,6 @@ const SpotifyIcon: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
-// CORREÇÃO: A definição do ícone do WhatsApp foi adicionada aqui
 const WhatsappIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
@@ -49,25 +48,55 @@ const WhatsappIcon: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
-
 const Header: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setIsMenuOpen(false);
   };
+  
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-sm">
-      <div className="container mx-auto px-6 py-2 flex justify-between items-center">
-        <Logo className="h-14 w-auto" />
-        <nav className="hidden md:flex items-center space-x-8">
-          <button onClick={() => scrollToSection('home')} className="hover:text-cyan-400 transition-colors">INÍCIO</button>
-          <button onClick={() => scrollToSection('artistas')} className="hover:text-cyan-400 transition-colors">ARTISTAS</button>
-          <button onClick={() => scrollToSection('sobre')} className="hover:text-cyan-400 transition-colors">SOBRE</button>
+    <>
+      <header className="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-sm">
+        <div className="container mx-auto px-6 py-2 flex justify-between items-center">
+          <Logo className="h-14 w-auto" />
+          
+          <nav className="hidden md:flex items-center space-x-8">
+            <button onClick={() => scrollToSection('home')} className="hover:text-cyan-400 transition-colors">INÍCIO</button>
+            <button onClick={() => scrollToSection('artistas')} className="hover:text-cyan-400 transition-colors">ARTISTAS</button>
+            <button onClick={() => scrollToSection('sobre')} className="hover:text-cyan-400 transition-colors">SOBRE</button>
+          </nav>
+          <button onClick={() => scrollToSection('contato')} className="hidden md:block bg-cyan-400 text-black font-bold py-2 px-5 rounded-full hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(0,242,234,0.5)]">
+            CONTRATE
+          </button>
+
+          <div className="md:hidden">
+            <button onClick={() => setIsMenuOpen(true)}>
+              <Menu size={28} />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div 
+        className={`fixed top-0 right-0 h-full w-64 bg-black/50 backdrop-blur-lg z-50 transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+      >
+        <div className="flex justify-end p-6">
+          <button onClick={() => setIsMenuOpen(false)}>
+            <X size={28} />
+          </button>
+        </div>
+        <nav className="flex flex-col items-center space-y-8 mt-8">
+          <button onClick={() => scrollToSection('home')} className="text-xl hover:text-cyan-400 transition-colors">INÍCIO</button>
+          <button onClick={() => scrollToSection('artistas')} className="text-xl hover:text-cyan-400 transition-colors">ARTISTAS</button>
+          <button onClick={() => scrollToSection('sobre')} className="text-xl hover:text-cyan-400 transition-colors">SOBRE</button>
+          <button onClick={() => scrollToSection('contato')} className="mt-8 bg-cyan-400 text-black font-bold py-3 px-8 rounded-full hover:bg-cyan-300 transition-colors">
+            CONTRATE
+          </button>
         </nav>
-        <button onClick={() => scrollToSection('contato')} className="bg-cyan-400 text-black font-bold py-2 px-5 rounded-full hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(0,242,234,0.5)]">
-          CONTRATE
-        </button>
       </div>
-    </header>
+    </>
   );
 };
 
