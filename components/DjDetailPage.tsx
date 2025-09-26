@@ -48,9 +48,9 @@ const DjHeader: React.FC<{onBack: () => void}> = ({onBack}) => {
                 <ArrowLeft size={20} />
              </button>
              <nav className="flex items-center space-x-4 md:space-x-8 bg-black/30 backdrop-blur-sm px-6 py-2 rounded-full">
-              <button onClick={() => scrollToSection('musicas')} className="hover:text-cyan-400 transition-colors text-sm md:text-base">MÚSICA</button>
-              <button onClick={() => scrollToSection('visualizers')} className="hover:text-cyan-400 transition-colors text-sm md:text-base">VISUALIZERS</button>
-              <button onClick={() => scrollToSection('sobre')} className="hover:text-cyan-400 transition-colors text-sm md:text-base">SOBRE</button>
+              <button onClick={() => scrollToSection('musicas')} className="hover:text-white transition-colors text-sm md:text-base">MÚSICA</button>
+              <button onClick={() => scrollToSection('visualizers')} className="hover:text-white transition-colors text-sm md:text-base">VISUALIZERS</button>
+              <button onClick={() => scrollToSection('sobre')} className="hover:text-white transition-colors text-sm md:text-base">SOBRE</button>
             </nav>
             <div></div>
           </div>
