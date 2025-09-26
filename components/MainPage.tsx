@@ -18,7 +18,7 @@ const Logo: React.FC<{ className?: string }> = ({ className = '' }) => (
 const YoutubeIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
-    viewBox="0 0 24" 
+    viewBox="0 0 24 24" 
     fill="currentColor" 
     className={className}
   >
@@ -26,22 +26,21 @@ const YoutubeIcon: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
+// CORRIGIDO: O código SVG do ícone do Spotify foi substituído por um limpo e funcional.
 const SpotifyIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    fill="currentColor" 
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
     className={className}
-    viewBox="0 0 16 16"
   >
-    <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.669 11.538a.5.5 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686m.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858m.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288"/>
+    <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm4.414 14.242c-.268.445-.85.58-1.295.312-2.5-1.5-5.63-1.832-9.303-.984-.522.12-.992-.225-.114-.746.12-.522.59-.867.747-1.002 4.103-.943 7.633-.538 10.493 1.133.445.268.58.85.312 1.295zm1.5-3.03c-.32.533-1.02.7-1.553.38-2.835-1.72-7.07-2.22-10.42-1.21-.62.18-1.27-.19-1.45-.81-.18-.62.19-1.27.81-1.45 3.86-1.12 8.59-.57 11.85 1.42.53.32.7 1.02.38 1.55zm.11-3.21c-3.48-2.01-9.21-2.2-12.82-.12-.72.24-1.49-.2-1.73-.92-.24-.72.2-1.49.92-1.73 4.12-2.32 10.45-2.04 14.46 2.26.63.36.87 1.14.51 1.77-.36.63-1.14.87-1.77.51z"/>
   </svg>
 );
 
 const WhatsappIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
-    width="16" 
-    height="16" 
     fill="currentColor" 
     className={className}
     viewBox="0 0 16 16"
