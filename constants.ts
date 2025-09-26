@@ -3,6 +3,7 @@ import { Artist } from './types';
 export const ARTISTS: Artist[] = [
   {
     id: 1,
+    slug: 'rodriz', // ADICIONADO
     name: 'DJ Rodriz',
     tagline: 'DJ / Produtor',
     image: '/artists/djrodriz1.webp',
@@ -25,6 +26,7 @@ export const ARTISTS: Artist[] = [
   },
   {
     id: 2,
+    slug: 'lucashenrique', // ADICIONADO
     name: 'DJ Lucas Henrique',
     tagline: 'DJ / Produtor',
     image: '/artists/djlucashenrique1.webp',
@@ -44,10 +46,11 @@ export const ARTISTS: Artist[] = [
     heroVideo: '/videos/lucashenrique.mp4',
     spotifyEmbedUrl: 'https://open.spotify.com/embed/track/2bgQz0QSSQ3oJ2VzyeaZj5?utm_source=generator',
     youtubeEmbedUrl: 'https://www.youtube.com/embed/th2a-UrUEVE?si=v4d_YkKGNRF7BFgR',
-    bio: 'Lucas Henrique iniciou sua carreira no Megafunk em 2022, produzindo suas próprias faixas e sendo influenciado por grandes nomes da cena. Ganhou destaque logo no início, tocando em diversas casas de shows. Desde então vem se destacando e entregando o seu melhor em cada evento.',
+    bio: 'Lucas Henrique iniciou sua carreira no Megafunk em 2022, produzindo seus próprias faixas e sendo influenciado por grandes nomes da cena. Ganhou destaque logo no início, tocando em diversas casas de shows. Desde então vem se destacando e entregando o seu melhor em cada evento.',
   },
   {
     id: 3,
+    slug: 'zatelli', // ADICIONADO
     name: 'DJ Zatelli',
     tagline: 'DJ / Produtor',
     image: '/artists/djzatelli1.webp',
@@ -71,6 +74,7 @@ export const ARTISTS: Artist[] = [
   },
   {
     id: 4,
+    slug: 'diguera', // ADICIONADO
     name: 'DJ Diguera',
     tagline: 'DJ / Produtor',
     image: '/artists/djdiguera1.webp',
