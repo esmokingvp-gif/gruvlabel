@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'; // Adicionado useEffect
 import { useNavigate } from 'react-router-dom';
 import { Artist } from '../types';
 import { Instagram, FileText, Calendar, LineChart, Send, MonitorPlay, Menu, X } from 'lucide-react';
@@ -52,6 +52,22 @@ const WhatsappIcon: React.FC<{ className?: string }> = ({ className }) => (
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   
   const whatsappUrl = "https://wa.me/5547997644727?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20Gr%C3%BCv%20Label.";
 
@@ -66,7 +82,9 @@ const Header: React.FC = () => {
   
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-sm">
+      <header 
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${isScrolled ? 'bg-black/30 backdrop-blur-sm' : 'bg-transparent'}`}
+      >
         <div className="container mx-auto px-6 py-2 flex justify-between items-center">
           <Logo className="h-14 w-auto" />
           
