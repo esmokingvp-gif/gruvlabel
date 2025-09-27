@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Artist } from '../types';
-import { Instagram, FileText, Calendar, LineChart, Send, MonitorPlay, Menu, X } from 'lucide-react';
+import { Instagram, FileText, Calendar, LineChart, Send, MonitorPlay } from 'lucide-react';
 
 interface MainPageProps {
   artists: Artist[];
@@ -50,65 +50,20 @@ const WhatsappIcon: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
-// MODIFICADO: Header redesenhado para imitar o da página de detalhes
+// MODIFICADO: Header simplificado para ser apenas a navegação flutuante no desktop
 const Header: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    setIsMenuOpen(false);
   };
   
-  const whatsappUrl = "https://wa.me/5547997644727?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20Gr%C3%BCv%20Label.";
-
-  const handleContrateClick = () => {
-    window.open(whatsappUrl, '_blank');
-  };
-
   return (
-    <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          {/* Item da Esquerda: Logo no Desktop, Hambúrguer no Mobile */}
-          <Logo className="h-14 w-auto hidden md:block" />
-          <button onClick={() => setIsMenuOpen(true)} className="p-2 md:hidden">
-            <Menu size={28} />
-          </button>
-          
-          {/* Item do Meio: Navegação Arredondada */}
-          <nav className="flex items-center space-x-4 md:space-x-8 bg-black/30 backdrop-blur-sm px-6 py-2 rounded-full">
-            <button onClick={() => scrollToSection('home')} className="hover:text-cyan-400 transition-colors text-sm md:text-base">INÍCIO</button>
-            <button onClick={() => scrollToSection('artistas')} className="hover:text-cyan-400 transition-colors text-sm md:text-base">ARTISTAS</button>
-            <button onClick={() => scrollToSection('sobre')} className="hover:text-cyan-400 transition-colors text-sm md:text-base">SOBRE</button>
-          </nav>
-
-          {/* Item da Direita: Botão Contrate no Desktop, Placeholder no Mobile */}
-          <button onClick={handleContrateClick} className="hidden md:flex items-center justify-center bg-cyan-400 text-black font-bold py-2 px-5 rounded-full hover:bg-cyan-300 transition-colors">
-            CONTRATE
-          </button>
-          <div className="w-10 h-10 md:hidden"></div> {/* Placeholder para centralizar no mobile */}
-        </div>
-      </header>
-
-      {/* Menu Lateral Deslizante */}
-      <div 
-        className={`fixed top-0 right-0 h-full w-64 bg-black/50 backdrop-blur-lg z-[60] transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
-      >
-        <div className="flex justify-end p-6">
-          <button onClick={() => setIsMenuOpen(false)}>
-            <X size={28} />
-          </button>
-        </div>
-        <nav className="flex flex-col items-center space-y-8 mt-8">
-          <button onClick={() => scrollToSection('home')} className="text-xl hover:text-cyan-400 transition-colors">INÍCIO</button>
-          <button onClick={() => scrollToSection('artistas')} className="text-xl hover:text-cyan-400 transition-colors">ARTISTAS</button>
-          <button onClick={() => scrollToSection('sobre')} className="text-xl hover:text-cyan-400 transition-colors">SOBRE</button>
-          <button onClick={handleContrateClick} className="mt-8 bg-cyan-400 text-black font-bold py-3 px-8 rounded-full hover:bg-cyan-300 transition-colors">
-            CONTRATE
-          </button>
-        </nav>
-      </div>
-    </>
+    <header className="fixed top-0 left-0 right-0 z-50 hidden md:flex justify-center pt-4">
+      <nav className="flex items-center space-x-8 bg-black/30 backdrop-blur-sm px-6 py-2 rounded-full">
+        <button onClick={() => scrollToSection('home')} className="hover:text-cyan-400 transition-colors">INÍCIO</button>
+        <button onClick={() => scrollToSection('artistas')} className="hover:text-cyan-400 transition-colors">ARTISTAS</button>
+        <button onClick={() => scrollToSection('sobre')} className="hover:text-cyan-400 transition-colors">SOBRE</button>
+      </nav>
+    </header>
   );
 };
 
