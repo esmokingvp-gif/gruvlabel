@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Artist } from '../types';
 import { Instagram, FileText, Calendar, LineChart, Send, MonitorPlay, Menu, X } from 'lucide-react';
@@ -50,10 +50,10 @@ const WhatsappIcon: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
-// MODIFICADO: Header redesenhado para ter o design da página de detalhes
+// MODIFICADO: Header redesenhado para ter o design da página de detalhes e ser responsivo
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     setIsMenuOpen(false);
@@ -69,23 +69,28 @@ const Header: React.FC = () => {
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+          {/* Item da Esquerda: Logo no Desktop, Hambúrguer no Mobile */}
+          <Logo className="h-14 w-auto hidden md:block" />
           <button onClick={() => setIsMenuOpen(true)} className="p-2 md:hidden">
             <Menu size={28} />
           </button>
           
-          <nav className="hidden md:flex items-center space-x-8 bg-black/30 backdrop-blur-sm px-6 py-2 rounded-full">
-            <button onClick={() => scrollToSection('home')} className="hover:text-cyan-400 transition-colors">INÍCIO</button>
-            <button onClick={() => scrollToSection('artistas')} className="hover:text-cyan-400 transition-colors">ARTISTAS</button>
-            <button onClick={() => scrollToSection('sobre')} className="hover:text-cyan-400 transition-colors">SOBRE</button>
+          {/* Item do Meio: Navegação Arredondada */}
+          <nav className="flex items-center space-x-4 md:space-x-8 bg-black/30 backdrop-blur-sm px-6 py-2 rounded-full">
+            <button onClick={() => scrollToSection('home')} className="hover:text-cyan-400 transition-colors text-sm md:text-base">INÍCIO</button>
+            <button onClick={() => scrollToSection('artistas')} className="hover:text-cyan-400 transition-colors text-sm md:text-base">ARTISTAS</button>
+            <button onClick={() => scrollToSection('sobre')} className="hover:text-cyan-400 transition-colors text-sm md:text-base">SOBRE</button>
           </nav>
 
+          {/* Item da Direita: Botão Contrate no Desktop, Placeholder no Mobile */}
           <button onClick={handleContrateClick} className="hidden md:flex items-center justify-center bg-cyan-400 text-black font-bold py-2 px-5 rounded-full hover:bg-cyan-300 transition-colors">
             CONTRATE
           </button>
-          <div className="w-10 h-10 md:hidden"></div> {/* Placeholder para centralizar no mobile */}
+          <div className="w-10 h-10 md:hidden"></div> {/* Placeholder para centralizar a nav no mobile */}
         </div>
       </header>
 
+      {/* Menu Lateral Deslizante para Mobile */}
       <div 
         className={`fixed top-0 right-0 h-full w-64 bg-black/50 backdrop-blur-lg z-[60] transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
@@ -211,7 +216,7 @@ const MainPage: React.FC<MainPageProps> = ({ artists }) => {
               <p className="text-gray-400 mt-2 max-w-lg mx-auto">Contrate os melhores DJs para o seu evento</p>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-xs">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-sm">
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-cyan-400 text-black font-bold py-4 px-10 rounded-full hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(0,242,234,0.5)]">
                   CONTRATE AGORA
                 </a>
