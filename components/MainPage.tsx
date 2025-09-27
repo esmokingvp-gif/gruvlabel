@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Artist } from '../types';
-import { Instagram, FileText, Calendar, LineChart, Send, MonitorPlay, Menu, X } from 'lucide-react';
+import { Instagram, FileText, Calendar, LineChart, Send, MonitorPlay } from 'lucide-react';
 
 interface MainPageProps {
   artists: Artist[];
@@ -16,10 +16,10 @@ const Logo: React.FC<{ className?: string }> = ({ className = '' }) => (
 );
 
 const YoutubeIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    viewBox="0 0 24" 
-    fill="currentColor" 
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24"
+    fill="currentColor"
     className={className}
   >
     <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
@@ -27,9 +27,9 @@ const YoutubeIcon: React.FC<{ className?: string }> = ({ className }) => (
 );
 
 const SpotifyIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    fill="currentColor" 
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
     className={className}
     viewBox="0 0 16 16"
   >
@@ -38,11 +38,11 @@ const SpotifyIcon: React.FC<{ className?: string }> = ({ className }) => (
 );
 
 const WhatsappIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    width="16" 
-    height="16" 
-    fill="currentColor" 
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
     className={className}
     viewBox="0 0 16 16"
   >
@@ -50,83 +50,37 @@ const WhatsappIcon: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
-// MODIFICADO: Header redesenhado para ter o design da página de detalhes e ser responsivo
+// MODIFICADO: Header simplificado para ser apenas a navegação flutuante no desktop
 const Header: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    setIsMenuOpen(false);
   };
-  
-  const whatsappUrl = "https://wa.me/5547997644727?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20Gr%C3%BCv%20Label.";
-
-  const handleContrateClick = () => {
-    window.open(whatsappUrl, '_blank');
-  };
-
   return (
-    <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          {/* Item da Esquerda: Logo no Desktop, Hambúrguer no Mobile */}
-          <Logo className="h-14 w-auto hidden md:block" />
-          <button onClick={() => setIsMenuOpen(true)} className="p-2 md:hidden">
-            <Menu size={28} />
-          </button>
-          
-          {/* Item do Meio: Navegação Arredondada */}
-          <nav className="flex items-center space-x-4 md:space-x-8 bg-black/30 backdrop-blur-sm px-6 py-2 rounded-full">
-            <button onClick={() => scrollToSection('home')} className="hover:text-cyan-400 transition-colors text-sm md:text-base">INÍCIO</button>
-            <button onClick={() => scrollToSection('artistas')} className="hover:text-cyan-400 transition-colors text-sm md:text-base">ARTISTAS</button>
-            <button onClick={() => scrollToSection('sobre')} className="hover:text-cyan-400 transition-colors text-sm md:text-base">SOBRE</button>
-          </nav>
-
-          {/* Item da Direita: Botão Contrate no Desktop, Placeholder no Mobile */}
-          <button onClick={handleContrateClick} className="hidden md:flex items-center justify-center bg-cyan-400 text-black font-bold py-2 px-5 rounded-full hover:bg-cyan-300 transition-colors">
-            CONTRATE
-          </button>
-          <div className="w-10 h-10 md:hidden"></div> {/* Placeholder para centralizar a nav no mobile */}
-        </div>
-      </header>
-
-      {/* Menu Lateral Deslizante para Mobile */}
-      <div 
-        className={`fixed top-0 right-0 h-full w-64 bg-black/50 backdrop-blur-lg z-[60] transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
-      >
-        <div className="flex justify-end p-6">
-          <button onClick={() => setIsMenuOpen(false)}>
-            <X size={28} />
-          </button>
-        </div>
-        <nav className="flex flex-col items-center space-y-8 mt-8">
-          <button onClick={() => scrollToSection('home')} className="text-xl hover:text-cyan-400 transition-colors">INÍCIO</button>
-          <button onClick={() => scrollToSection('artistas')} className="text-xl hover:text-cyan-400 transition-colors">ARTISTAS</button>
-          <button onClick={() => scrollToSection('sobre')} className="text-xl hover:text-cyan-400 transition-colors">SOBRE</button>
-          <button onClick={handleContrateClick} className="mt-8 bg-cyan-400 text-black font-bold py-3 px-8 rounded-full hover:bg-cyan-300 transition-colors">
-            CONTRATE
-          </button>
-        </nav>
-      </div>
-    </>
+    // AQUI ESTÁ A CORREÇÃO: removido "hidden" e trocado "md:flex" por "flex"
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4">
+      <nav className="flex items-center space-x-8 bg-black/30 backdrop-blur-sm px-6 py-2 rounded-full">
+        <button onClick={() => scrollToSection('home')} className="hover:text-cyan-400 transition-colors">INÍCIO</button>
+        <button onClick={() => scrollToSection('artistas')} className="hover:text-cyan-400 transition-colors">ARTISTAS</button>
+        <button onClick={() => scrollToSection('sobre')} className="hover:text-cyan-400 transition-colors">SOBRE</button>
+      </nav>
+    </header>
   );
 };
 
 const ArtistCard: React.FC<{ artist: Artist }> = ({ artist }) => {
   const navigate = useNavigate();
-
   const handleSelectArtist = () => {
     window.scrollTo(0, 0);
     navigate(`/${artist.slug}`);
   };
 
   const artistWhatsappUrl = `https://wa.me/5547997644727?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20${encodeURIComponent(artist.name)}`;
-
+  
   return (
     <div className="group relative aspect-[3/4] border border-gray-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2 card-glow">
-      <img 
-        src={artist.image} 
-        alt={artist.name} 
+      <img
+        src={artist.image}
+        alt={artist.name}
         className={`absolute inset-0 w-full h-full object-cover ${artist.imageAlignment || 'object-center'} transition-transform duration-500 ease-in-out group-hover:scale-110`}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent"></div>
@@ -177,19 +131,18 @@ const ArtistCard: React.FC<{ artist: Artist }> = ({ artist }) => {
 };
 
 const ServiceCard: React.FC<{ icon: React.ReactNode; title: string }> = ({ icon, title }) => (
-    <div className="bg-[#1A1A1A] border border-gray-800 rounded-2xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-1 card-glow">
-        <div className="text-cyan-400 mb-4">{icon}</div>
-        <h4 className="font-semibold">{title}</h4>
-    </div>
+  <div className="bg-[#1A1A1A] border border-gray-800 rounded-2xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-1 card-glow">
+    <div className="text-cyan-400 mb-4">{icon}</div>
+    <h4 className="font-semibold">{title}</h4>
+  </div>
 );
 
 const MainPage: React.FC<MainPageProps> = ({ artists }) => {
   const whatsappUrl = "https://wa.me/5547997644727?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20Gr%C3%BCv%20Label.";
-
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
-
+  
   return (
     <>
       <Header />
@@ -217,10 +170,10 @@ const MainPage: React.FC<MainPageProps> = ({ artists }) => {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-sm">
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-cyan-400 text-black font-bold py-4 px-10 rounded-full hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(0,242,234,0.5)]">
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-cyan-400 text-black font-bold py-3 px-8 rounded-full hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(0,242,234,0.5)]">
                   CONTRATE AGORA
                 </a>
-                <button onClick={() => scrollToSection('artistas')} className="w-full sm:w-auto bg-transparent border border-gray-600 text-white font-semibold py-4 px-10 rounded-full hover:bg-gray-800 hover:border-gray-500 transition-all duration-300">NOSSOS ARTISTAS</button>
+                <button onClick={() => scrollToSection('artistas')} className="w-full sm:w-auto bg-transparent border border-gray-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-gray-800 hover:border-gray-500 transition-all duration-300">NOSSOS ARTISTAS</button>
             </div>
           </div>
         </section>
