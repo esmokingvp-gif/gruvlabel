@@ -8,11 +8,6 @@ export const ARTISTS: Artist[] = [
     tagline: 'DJ / Produtor',
     image: '/artists/djrodriz1.webp',
     logoUrl: '/logos/rodriz-logo.png',
-    stats: {
-      monthlyListeners: '180K ouvintes/mês',
-      subscribers: '1.75K inscritos',
-      views: '2M+ views',
-    },
     socials: {
       instagram: 'https://www.instagram.com/rodrizdj/?hl=pt-br',
       spotify: 'https://open.spotify.com/intl-pt/artist/3s085Y3JMDExHJiZzDxhUP',
@@ -32,11 +27,6 @@ export const ARTISTS: Artist[] = [
     image: '/artists/djlucashenrique1.webp',
     imageAlignment: 'object-top',
     logoUrl: '/logos/lucashenrique-logo.png',
-    stats: {
-      monthlyListeners: '64K ouvintes/mês',
-      subscribers: '8.8K inscritos',
-      views: '3M+ views',
-    },
     socials: {
       instagram: 'https://www.instagram.com/djlucashenrique_/',
       spotify: 'https://open.spotify.com/intl-pt/artist/0auLP5j5MbnqMRXmdlvub9',
@@ -56,11 +46,6 @@ export const ARTISTS: Artist[] = [
     image: '/artists/djzatelli1.webp',
     imageAlignment: 'object-top',
     logoUrl: '/logos/zatelli-logo.png',
-    stats: {
-      monthlyListeners: '5K ouvintes/mês',
-      subscribers: '6.5K inscritos',
-      views: '1.9M+ views',
-    },
     socials: {
       instagram: 'https://www.instagram.com/djzatelli/',
       spotify: 'https://open.spotify.com/intl-pt/artist/5WXA9QsuHzbaB696vr1Hkg',
@@ -80,11 +65,6 @@ export const ARTISTS: Artist[] = [
     image: '/artists/djdiguera1.webp',
     imageAlignment: 'object-top',
     logoUrl: '/logos/diguera-logo.png',
-    stats: {
-      monthlyListeners: '10K ouvintes/mês',
-      subscribers: '1.2K inscritos',
-      views: '500K+ views',
-    },
     socials: {
       instagram: 'https://www.instagram.com/diguerabr/',
       spotify: 'https://open.spotify.com/intl-pt/artist/1CKoqzkaphGMIcHZ55JvvM',
