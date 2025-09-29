@@ -87,9 +87,6 @@ const ArtistCard: React.FC<{ artist: Artist }> = ({ artist }) => {
       <div className="relative z-10 flex flex-col h-full p-6 text-center text-white">
         <div className="mt-auto">
           <h3 className="text-3xl font-bold mb-2">{artist.name}</h3>
-          <p className="text-sm text-gray-400 mb-1">{artist.stats.monthlyListeners}</p>
-          <p className="text-sm text-gray-400 mb-1">{artist.stats.subscribers}</p>
-          <p className="text-sm text-gray-400 mb-4">{artist.stats.views}</p>
           
           <div className="flex justify-center items-center gap-3 mb-6">
             <a href={artist.socials.spotify} target="_blank" rel="noopener noreferrer" className="p-2 bg-black/30 backdrop-blur-sm rounded-full hover:bg-black/50 transition-colors">
