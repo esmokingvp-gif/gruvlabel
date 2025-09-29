@@ -6,11 +6,6 @@ export interface Artist {
   image: string;
   imageAlignment?: string;
   logoUrl: string;
-  stats: {
-    monthlyListeners: string;
-    subscribers: string;
-    views: string;
-  };
   socials: {
     instagram: string;
     spotify: string;
