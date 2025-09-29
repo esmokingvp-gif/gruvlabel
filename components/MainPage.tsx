@@ -15,16 +15,25 @@ const Logo: React.FC<{ className?: string }> = ({ className = '' }) => (
   />
 );
 
+// MODIFICADO: Ícone do YouTube atualizado com o SVG fornecido.
 const YoutubeIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24"
-    fill="currentColor"
+    shape-rendering="geometricPrecision"
+    text-rendering="geometricPrecision"
+    image-rendering="optimizeQuality"
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    viewBox="0 0 512 360.726"
     className={className}
   >
-    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+    <path
+      fill="currentColor"
+      d="M456.035 10.769c22.031 5.926 39.377 23.386 45.265 45.56C512 96.516 512 180.363 512 180.363s0 83.846-10.7 124.037c-5.888 22.17-23.234 39.631-45.265 45.559-39.928 10.767-200.034 10.767-200.034 10.767s-160.107 0-200.035-10.767C33.937 344.031 16.587 326.57 10.7 304.4 0 264.209 0 180.363 0 180.363S0 96.516 10.7 56.329c5.887-22.174 23.237-39.634 45.266-45.56C95.894 0 256.001 0 256.001 0s160.106 0 200.034 10.769zm-252.398 245.72l133.818-76.122-133.818-76.131v152.253z"
+    />
   </svg>
 );
+
 
 const SpotifyIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg
@@ -50,13 +59,11 @@ const WhatsappIcon: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
-// MODIFICADO: Header simplificado para ser apenas a navegação flutuante no desktop
 const Header: React.FC = () => {
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
   return (
-    // AQUI ESTÁ A CORREÇÃO: removido "hidden" e trocado "md:flex" por "flex"
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4">
       <nav className="flex items-center space-x-8 bg-black/30 backdrop-blur-sm px-6 py-2 rounded-full">
         <button onClick={() => scrollToSection('home')} className="hover:text-cyan-400 transition-colors">INÍCIO</button>
