@@ -40,25 +40,6 @@ export const ARTISTS: Artist[] = [
   },
   {
     id: 3,
-    slug: 'zatelli', // ADICIONADO
-    name: 'DJ Zatelli',
-    tagline: 'DJ / Produtor',
-    image: '/artists/djzatelli1.webp',
-    imageAlignment: 'object-top',
-    logoUrl: '/logos/zatelli-logo.png',
-    socials: {
-      instagram: 'https://www.instagram.com/djzatelli/',
-      spotify: 'https://open.spotify.com/intl-pt/artist/5WXA9QsuHzbaB696vr1Hkg',
-      youtube: 'https://www.youtube.com/@DjZatelli',
-      pressKit: 'https://drive.google.com/drive/folders/1Fb4X4gurVyg6SAw4vaLUMhWg1hFI2Ywk',
-    },
-    heroVideo: '/videos/zatelli.mp4',
-    spotifyEmbedUrl: 'https://open.spotify.com/embed/track/0RKaJf6wZ5rU6yBXEFCPDR?utm_source=generator',
-    youtubeEmbedUrl: 'https://www.youtube.com/embed/IFf6r38vERk?si=8r1SeXILU5rBj6Hk',
-    bio: 'DJ Zatelli (Thiago Correira) é DJ e produtor de Mega Funk desde os 16 anos. Acumulando mais de 1,8 milhão de visualizações, destaca-se na cena por sua constante inovação a cada som. Já se apresentou em diversas cidades do Sul e vem ganhando cada vez mais reconhecimento.',
-  },
-  {
-    id: 4,
     slug: 'diguera', // ADICIONADO
     name: 'DJ Diguera',
     tagline: 'DJ / Produtor',
